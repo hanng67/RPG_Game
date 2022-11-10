@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameMenuOpen || dialogActive || fadingBetweenAreas)
+        if (gameMenuOpen || dialogActive || fadingBetweenAreas)
         {
             PlayerController.instance.canMove = false;
         }
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < referenceItems.Length; i++)
         {
-            if(referenceItems[i].itemName == itemToGrab)
+            if (referenceItems[i].itemName == itemToGrab)
             {
                 return referenceItems[i];
             }
@@ -83,11 +83,11 @@ public class GameManager : MonoBehaviour
         //    }
         //}
 
-        for (int i = 0; i < itemsHeld.Length-1; i++)
+        for (int i = 0; i < itemsHeld.Length - 1; i++)
         {
             if (itemsHeld[i] != "") continue;
 
-            for (int j = i+1; j < itemsHeld.Length; j++)
+            for (int j = i + 1; j < itemsHeld.Length; j++)
             {
                 if (itemsHeld[j] == "") continue;
 
@@ -108,40 +108,16 @@ public class GameManager : MonoBehaviour
 
     public void AddItem(string itemToAdd)
     {
-        int newItemPosition = 0;
-        bool isFoundSpace = false;
+        int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
 
-        for (int i = 0; i < itemsHeld.Length; i++)
+        if (System.Array.Exists<Item>(referenceItems, (Item e) => e.itemName == itemToAdd))
         {
-            if((itemsHeld[i] == itemToAdd) || (itemsHeld[i] == ""))
-            {
-                newItemPosition = i;
-                isFoundSpace = true;
-                break;
-            }
+            itemsHeld[newItemPosition] = itemToAdd;
+            numberOfItems[newItemPosition]++;
         }
-
-        if (isFoundSpace)
+        else
         {
-            bool isExist = false;
-            for (int i = 0; i < referenceItems.Length; i++)
-            {
-                if(referenceItems[i].itemName == itemToAdd)
-                {
-                    isExist = true;
-                    break;
-                }
-            }
-
-            if (isExist)
-            {
-                itemsHeld[newItemPosition] = itemToAdd;
-                numberOfItems[newItemPosition]++;
-            }
-            else
-            {
-                Debug.LogError(itemToAdd + " Does Not Exist!");
-            }
+            Debug.LogError(itemToAdd + " Does Not Exist!");
         }
 
         GameMenu.instance.ShowItems();
@@ -149,24 +125,13 @@ public class GameManager : MonoBehaviour
 
     public void RemoveItem(string itemToRemove)
     {
-        int itemPosition = 0;
-        bool isFoundItem = false;
+        int itemPosition = System.Array.IndexOf(itemsHeld, itemToRemove);
 
-        for (int i = 0; i < itemsHeld.Length; i++)
-        {
-            if(itemsHeld[i] == itemToRemove)
-            {
-                itemPosition = i;
-                isFoundItem = true;
-                break;
-            }
-        }
-
-        if (isFoundItem)
+        if (itemPosition != -1)
         {
             numberOfItems[itemPosition]--;
 
-            if(numberOfItems[itemPosition] <= 0)
+            if (numberOfItems[itemPosition] <= 0)
             {
                 itemsHeld[itemPosition] = "";
             }
