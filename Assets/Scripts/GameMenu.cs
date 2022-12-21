@@ -173,6 +173,7 @@ public class GameMenu : MonoBehaviour
     public void SelectItem(Item newItem)
     {
         activeItem = newItem;
+        if(newItem == null) return;
 
         itemName.text = activeItem.itemName;
         itemDescription.text = activeItem.description;
@@ -184,6 +185,12 @@ public class GameMenu : MonoBehaviour
         if(activeItem.isWeapon || activeItem.isArmor)
         {
             useBtnText.text = "Equip";
+        }
+    }
+
+    public void DiscardItem(){
+        if(activeItem != null){
+            GameManager.instance.RemoveItem(activeItem.name);
         }
     }
 }

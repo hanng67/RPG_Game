@@ -9,6 +9,8 @@ public class ItemButton : MonoBehaviour
     public Text amountText;
     public int buttonValue;
 
+    private Item _selectedItem = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,13 @@ public class ItemButton : MonoBehaviour
 
     public void Press()
     {
+        _selectedItem = null;
+
         if(GameManager.instance.itemsHeld[buttonValue] != "")
         {
-            GameMenu.instance.SelectItem(GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[buttonValue]));
+            _selectedItem = GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[buttonValue]);
         }
+
+        GameMenu.instance.SelectItem(_selectedItem);
     }
 }
