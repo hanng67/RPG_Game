@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
 
     [Header("Item Details")]
     public string itemName;
-    [TextArea(5,1)]
+    [TextArea(5, 1)]
     public string description;
     public int value;
     public Sprite itemSprite;
@@ -27,12 +27,55 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void Use(int charToUseOn)
+    {
+        CharStats selectedChar = GameManager.instance.playerStats[charToUseOn];
+        IsUseItem(ref selectedChar);
+        IsEquipWeapon(ref selectedChar);
+        IsEquipArmor(ref selectedChar);
+        GameManager.instance.RemoveItem(itemName);
+    }
+
+    private void IsUseItem(ref CharStats selectedChar)
+    {
+        if (!isItem) return;
+
+        if (affectHP)
+        {
+            selectedChar.currentHP += value;
+            if (selectedChar.currentHP > selectedChar.maxHP) selectedChar.currentHP = selectedChar.maxHP;
+        }
+        else if (affectMP)
+        {
+            selectedChar.currentMP += value;
+            if (selectedChar.currentMP > selectedChar.maxMP) selectedChar.currentMP = selectedChar.maxMP;
+        }
+    }
+
+    private void IsEquipWeapon(ref CharStats selectedChar)
+    {
+        if (!isWeapon) return;
+
+        GameManager.instance.AddItem(selectedChar.equippedWpn);
+        selectedChar.equippedWpn = itemName;
+        selectedChar.wpnPwr = weaponStrength;
+    }
+
+    private void IsEquipArmor(ref CharStats selectedChar)
+    {
+        if (!isArmor) return;
+
+        GameManager.instance.AddItem(selectedChar.equippedArmr);
+        selectedChar.equippedArmr = itemName;
+        selectedChar.armrPwr = armorStrength;
     }
 }

@@ -108,6 +108,8 @@ public class GameManager : MonoBehaviour
 
     public void AddItem(string itemToAdd)
     {
+        if(itemToAdd == "") return;
+
         int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
 
         if (System.Array.Exists<Item>(referenceItems, (Item e) => e.itemName == itemToAdd))
@@ -125,6 +127,8 @@ public class GameManager : MonoBehaviour
 
     public void RemoveItem(string itemToRemove)
     {
+        if(itemToRemove == "") return;
+        
         int itemPosition = System.Array.IndexOf(itemsHeld, itemToRemove);
 
         if (itemPosition != -1)

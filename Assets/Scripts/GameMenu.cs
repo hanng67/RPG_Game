@@ -39,6 +39,9 @@ public class GameMenu : MonoBehaviour
     public Item activeItem;
     public Text itemName, itemDescription, useBtnText;
 
+    public GameObject itemCharChoiceMenu;
+    public Text[] itemCharChoiceNames;
+
     public static GameMenu instance;
 
     // Start is called before the first frame update
@@ -69,7 +72,7 @@ public class GameMenu : MonoBehaviour
     {
         _playerStats = GameManager.instance.playerStats;
 
-        for(int i = 0; i < _playerStats.Length; i++)
+        for (int i = 0; i < _playerStats.Length; i++)
         {
             if (_playerStats[i].gameObject.activeInHierarchy)
             {
@@ -96,7 +99,7 @@ public class GameMenu : MonoBehaviour
 
         for (int i = 0; i < _windows.Length; i++)
         {
-            if(i == windowNumber)
+            if (i == windowNumber)
             {
                 _windows[i].SetActive(!_windows[i].activeInHierarchy);
             }
@@ -156,7 +159,7 @@ public class GameMenu : MonoBehaviour
         {
             itemButtons[i].buttonValue = i;
 
-            if(GameManager.instance.itemsHeld[i] != "")
+            if (GameManager.instance.itemsHeld[i] != "")
             {
                 itemButtons[i].buttonImage.gameObject.SetActive(true);
                 itemButtons[i].buttonImage.sprite = GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[i]).itemSprite;
@@ -173,7 +176,7 @@ public class GameMenu : MonoBehaviour
     public void SelectItem(Item newItem)
     {
         activeItem = newItem;
-        if(newItem == null) return;
+        if (newItem == null) return;
 
         itemName.text = activeItem.itemName;
         itemDescription.text = activeItem.description;
@@ -182,15 +185,38 @@ public class GameMenu : MonoBehaviour
         {
             useBtnText.text = "Use";
         }
-        if(activeItem.isWeapon || activeItem.isArmor)
+        if (activeItem.isWeapon || activeItem.isArmor)
         {
             useBtnText.text = "Equip";
         }
     }
 
-    public void DiscardItem(){
-        if(activeItem != null){
+    public void DiscardItem()
+    {
+        if (activeItem != null)
+        {
             GameManager.instance.RemoveItem(activeItem.name);
         }
+    }
+
+    public void OpenItemCharChoiceMenu()
+    {
+        itemCharChoiceMenu.SetActive(true);
+        for (int i = 0; i < itemCharChoiceNames.Length; i++)
+        {
+            itemCharChoiceNames[i].text = GameManager.instance.playerStats[i].charName;
+            itemCharChoiceNames[i].transform
+                .parent.gameObject.SetActive(GameManager.instance.playerStats[i].gameObject.activeInHierarchy);
+        }
+    }
+
+    public void CloseItemCharChoiceMenu()
+    {
+        itemCharChoiceMenu.SetActive(false);
+    }
+
+    public void UseItem(int selectChar){
+        activeItem.Use(selectChar);
+        CloseItemCharChoiceMenu();
     }
 }
