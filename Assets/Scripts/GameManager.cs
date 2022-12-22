@@ -20,28 +20,13 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+        SortItems();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameMenuOpen || dialogActive || fadingBetweenAreas)
-        {
-            PlayerController.instance.canMove = false;
-        }
-        else
-        {
-            PlayerController.instance.canMove = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            AddItem("Iron Armor");
-            AddItem("Leather Armor");
-
-            RemoveItem("Health Potion");
-            RemoveItem("Mana Potion");
-        }
+        PlayerController.instance.canMove = !(gameMenuOpen || dialogActive || fadingBetweenAreas);
     }
 
     public Item GetItemDetails(string itemToGrab)
@@ -108,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void AddItem(string itemToAdd)
     {
-        if(itemToAdd == "") return;
+        if (itemToAdd == "") return;
 
         int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
 
@@ -127,8 +112,8 @@ public class GameManager : MonoBehaviour
 
     public void RemoveItem(string itemToRemove)
     {
-        if(itemToRemove == "") return;
-        
+        if (itemToRemove == "") return;
+
         int itemPosition = System.Array.IndexOf(itemsHeld, itemToRemove);
 
         if (itemPosition != -1)
