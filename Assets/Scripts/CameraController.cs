@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private Tilemap _theMap;
+    [SerializeField]
+    private bool isFollowPlayer = true;
 
     private Transform _target;
 
@@ -33,6 +35,8 @@ public class CameraController : MonoBehaviour
     // LateUpdate is called once per frame after Update()
     void LateUpdate()
     {
+        if(!isFollowPlayer) return;
+        
         transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
 
         // keep the camera inside the bound
