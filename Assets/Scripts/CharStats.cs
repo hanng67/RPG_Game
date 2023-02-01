@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class CharStats : MonoBehaviour
 {
-    public string charName;
-    public int playerLevel = 1;
-    public int currentExp;
-    public int[] expToNextLevel;
-    private int _maxLevel = 100;
-    private int _baseEXP = 1000;
+    public string CharName;
+    public int PlayerLevel = 1;
+    public int CurrentExp;
+    public int[] ExpToNextLevel;
+    private int maxLevel = 100;
+    private int baseEXP = 1000;
 
-    public int currentHP;
-    public int maxHP = 100;
-    public int currentMP;
-    public int maxMP = 30;
-    public int[] mpLvlBonus;
-    public int strengh;
-    public int defence;
-    public int wpnPwr;
-    public int armrPwr;
-    public string equippedWpn;
-    public string equippedArmr;
+    public int CurrentHP;
+    public int MaxHP = 100;
+    public int CurrentMP;
+    public int MaxMP = 30;
+    public int[] MpLvlBonus;
+    public int Strengh;
+    public int Defence;
+    public int WpnPwr;
+    public int ArmrPwr;
+    public string EquippedWpn;
+    public string EquippedArmr;
 
-    public Sprite charImage;
+    public Sprite CharImage;
 
     // Start is called before the first frame update
     void Start()
     {
-        expToNextLevel = new int[_maxLevel];
-        mpLvlBonus = new int[_maxLevel];
-        expToNextLevel[1] = _baseEXP;
-        for (int i=2; i < _maxLevel; i++)
+        ExpToNextLevel = new int[maxLevel];
+        MpLvlBonus = new int[maxLevel];
+        ExpToNextLevel[1] = baseEXP;
+        for (int i=2; i < maxLevel; i++)
         {
-            expToNextLevel[i] = Mathf.FloorToInt(expToNextLevel[i - 1] * 1.05f);
+            ExpToNextLevel[i] = Mathf.FloorToInt(ExpToNextLevel[i - 1] * 1.05f);
 
             if(i%2 == 0)
             {
-                mpLvlBonus[i] = i * 10;
+                MpLvlBonus[i] = i * 10;
             }
         }
     }
@@ -50,36 +50,36 @@ public class CharStats : MonoBehaviour
 
     public void AddExp(int expToAdd)
     {
-        currentExp += expToAdd;
+        CurrentExp += expToAdd;
 
-        if (playerLevel < _maxLevel)
+        if (PlayerLevel < maxLevel)
         {
-            if (currentExp > expToNextLevel[playerLevel])
+            if (CurrentExp > ExpToNextLevel[PlayerLevel])
             {
-                currentExp -= expToNextLevel[playerLevel];
-                playerLevel++;
+                CurrentExp -= ExpToNextLevel[PlayerLevel];
+                PlayerLevel++;
             }
 
             //determine whether to add to str of def based on odd or even
-            if (playerLevel % 2 == 0)
+            if (PlayerLevel % 2 == 0)
             {
-                strengh++;
+                Strengh++;
             }
             else
             {
-                defence++;
+                Defence++;
             }
 
-            maxHP = Mathf.FloorToInt(maxHP * 1.05f);
-            currentHP = maxHP;
+            MaxHP = Mathf.FloorToInt(MaxHP * 1.05f);
+            CurrentHP = MaxHP;
 
-            maxMP += mpLvlBonus[playerLevel];
-            currentMP = maxMP;
+            MaxMP += MpLvlBonus[PlayerLevel];
+            CurrentMP = MaxMP;
         }
 
-        if(playerLevel >= _maxLevel)
+        if(PlayerLevel >= maxLevel)
         {
-            currentExp = 0;
+            CurrentExp = 0;
         }
     }
 }

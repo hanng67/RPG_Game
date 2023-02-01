@@ -6,30 +6,30 @@ using UnityEngine.Tilemaps;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap _theMap;
+    private Tilemap theMap;
     [SerializeField]
     private bool isFollowPlayer = true;
 
-    private Transform _target;
+    private Transform target;
 
-    private Vector3 _bottomLeftLimit;
-    private Vector3 _topRightLimit;
+    private Vector3 bottomLeftLimit;
+    private Vector3 topRightLimit;
 
-    private float _halfHeigh;
-    private float _halfWidth;
+    private float halfHeigh;
+    private float halfWidth;
 
     // Start is called before the first frame update
     void Start()
     {
-        _target = FindObjectOfType<PlayerController>().transform;
+        target = FindObjectOfType<PlayerController>().transform;
 
-        _halfHeigh = Camera.main.orthographicSize;
-        _halfWidth = _halfHeigh * Camera.main.aspect;
+        halfHeigh = Camera.main.orthographicSize;
+        halfWidth = halfHeigh * Camera.main.aspect;
 
-        _bottomLeftLimit = _theMap.localBounds.min + new Vector3(_halfWidth, _halfHeigh, 0f);
-        _topRightLimit = _theMap.localBounds.max + new Vector3(-_halfWidth, -_halfHeigh, 0f);
+        bottomLeftLimit = theMap.localBounds.min + new Vector3(halfWidth, halfHeigh, 0f);
+        topRightLimit = theMap.localBounds.max + new Vector3(-halfWidth, -halfHeigh, 0f);
 
-        PlayerController.instance.SetBound(_theMap.localBounds.min, _theMap.localBounds.max);
+        PlayerController.Instance.SetBound(theMap.localBounds.min, theMap.localBounds.max);
     }
 
     // LateUpdate is called once per frame after Update()
@@ -37,11 +37,11 @@ public class CameraController : MonoBehaviour
     {
         if(!isFollowPlayer) return;
         
-        transform.position = new Vector3(_target.position.x, _target.position.y, transform.position.z);
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
 
         // keep the camera inside the bound
-        float boundX = Mathf.Clamp(transform.position.x, _bottomLeftLimit.x, _topRightLimit.x);
-        float boundY = Mathf.Clamp(transform.position.y, _bottomLeftLimit.y, _topRightLimit.y);
+        float boundX = Mathf.Clamp(transform.position.x, bottomLeftLimit.x, topRightLimit.x);
+        float boundY = Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y);
         transform.position = new Vector3(boundX, boundY, transform.position.z);
     }
 }

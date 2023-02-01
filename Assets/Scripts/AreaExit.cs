@@ -6,35 +6,35 @@ using UnityEngine.SceneManagement;
 public class AreaExit : MonoBehaviour
 {
     [SerializeField]
-    private string _areaToLoad;
+    private string areaToLoad;
 
     [SerializeField]
-    private string _areaTransitionName;
+    private string areaTransitionName;
 
     [SerializeField]
-    private AreaEntrance _areaEntrance;
+    private AreaEntrance areaEntrance;
 
     [SerializeField]
-    private float _waitToLoad;
+    private float waitToLoad;
 
-    private bool _shouldLoadAfterFade;
+    private bool shouldLoadAfterFade;
 
     // Start is called before the first frame update
     void Start()
     {
-        _areaEntrance.areaEntranceName = _areaTransitionName;
+        areaEntrance.AreaEntranceName = areaTransitionName;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_shouldLoadAfterFade)
+        if (shouldLoadAfterFade)
         {
-            _waitToLoad -= Time.deltaTime;
-            if(_waitToLoad <= 0)
+            waitToLoad -= Time.deltaTime;
+            if(waitToLoad <= 0)
             {
-                _shouldLoadAfterFade = false;
-                SceneManager.LoadScene(_areaToLoad);
+                shouldLoadAfterFade = false;
+                SceneManager.LoadScene(areaToLoad);
             }
         }   
     }
@@ -43,11 +43,11 @@ public class AreaExit : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _shouldLoadAfterFade = true;
-            GameManager.instance.fadingBetweenAreas = true;
-            UIFade.instance.FadeToBlack();
+            shouldLoadAfterFade = true;
+            GameManager.Instance.fadingBetweenAreas = true;
+            UIFade.Instance.FadeToBlack();
 
-            PlayerController.instance.areaTransistionName = _areaTransitionName;
+            PlayerController.Instance.AreaTransistionName = areaTransitionName;
         }
     }
 }

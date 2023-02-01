@@ -5,12 +5,12 @@ using UnityEngine;
 public class DialogActivator : MonoBehaviour
 {
     [SerializeField]
-    private string[] _newLines;
+    private string[] newLines;
 
     [SerializeField]
-    private bool _isPerson = true;
+    private bool isPerson = true;
 
-    private bool _canActive;
+    private bool canActive;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,9 @@ public class DialogActivator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_canActive && Input.GetButtonDown("Fire1") && !DialogManager.instance.GetActiveDialogBox())
+        if(canActive && Input.GetButtonDown("Fire1") && !DialogManager.Instance.GetActiveDialogBox())
         {
-            DialogManager.instance.ShowDialog(_newLines, _isPerson);
+            DialogManager.Instance.ShowDialog(newLines, isPerson);
         }
         
     }
@@ -32,7 +32,7 @@ public class DialogActivator : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _canActive = true;
+            canActive = true;
         }
     }
 
@@ -40,7 +40,7 @@ public class DialogActivator : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _canActive = false;
+            canActive = false;
         }
     }
 }

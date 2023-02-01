@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d4a6424877a9e43a596b189acdcc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaEntranceName: 
+  AreaEntranceName: 
 --- !u!1 &7828839334915352550
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f513575fee4b3794c811889f96da538d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _areaToLoad: 
-  _areaTransitionName: 
-  _areaEntrance: {fileID: 5784261848732411809}
-  _waitToLoad: 1
+  areaToLoad: 
+  areaTransitionName: 
+  areaEntrance: {fileID: 5784261848732411809}
+  waitToLoad: 1

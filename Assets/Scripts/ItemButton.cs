@@ -27,11 +27,11 @@ public class ItemButton : MonoBehaviour
     {
         _selectedItem = null;
 
-        if(GameManager.instance.itemsHeld[buttonValue] != "")
+        if(GameManager.Instance.itemsHeld[buttonValue] != "")
         {
-            _selectedItem = GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[buttonValue]);
+            _selectedItem = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[buttonValue]);
         }
 
-        GameMenu.instance.SelectItem(_selectedItem);
+        GameMenu.Instance.SelectItem(_selectedItem);
     }
 }

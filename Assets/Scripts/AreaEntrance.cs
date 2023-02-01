@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AreaEntrance : MonoBehaviour
 {
-    public string areaEntranceName;
+    public string AreaEntranceName;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (areaEntranceName == PlayerController.instance.areaTransistionName)
+        if (AreaEntranceName == PlayerController.Instance.AreaTransistionName)
         {
-            PlayerController.instance.transform.position = transform.position;
+            PlayerController.Instance.transform.position = transform.position;
         }
-        UIFade.instance.FadeFromBlack();
-        GameManager.instance.fadingBetweenAreas = false;
+        UIFade.Instance.FadeFromBlack();
+        GameManager.Instance.fadingBetweenAreas = false;
     }
 
     // Update is called once per frame

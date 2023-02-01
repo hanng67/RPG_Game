@@ -8,8 +8,8 @@ public class PickupItem : MonoBehaviour
 
     private void Update()
     {
-        if(canPickup && Input.GetButtonDown("Fire1") && PlayerController.instance.canMove){
-            GameManager.instance.AddItem(GetComponent<Item>().itemName);
+        if(canPickup && Input.GetButtonDown("Fire1") && PlayerController.Instance.CanMove){
+            GameManager.Instance.AddItem(GetComponent<Item>().ItemName);
             Destroy(gameObject);
         }
     }

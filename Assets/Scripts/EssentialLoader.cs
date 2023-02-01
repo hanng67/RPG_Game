@@ -5,31 +5,31 @@ using UnityEngine;
 public class EssentialLoader : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _player;
+    private GameObject player;
 
     [SerializeField]
-    private GameObject _UICanvasFade;
+    private GameObject UICanvasFade;
 
     [SerializeField]
-    private GameObject _gameMan;
+    private GameObject gameMan;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerController.instance == null)
+        if(PlayerController.Instance == null)
         {
-            PlayerController clone = Instantiate(_player).GetComponent<PlayerController>();
-            PlayerController.instance = clone;
+            PlayerController clone = Instantiate(player).GetComponent<PlayerController>();
+            PlayerController.Instance = clone;
         }
 
-        if (UIFade.instance == null)
+        if (UIFade.Instance == null)
         {
-            UIFade.instance = Instantiate(_UICanvasFade).GetComponent<UIFade>();
+            UIFade.Instance = Instantiate(UICanvasFade).GetComponent<UIFade>();
         }
 
-        if(GameManager.instance == null)
+        if(GameManager.Instance == null)
         {
-            GameManager.instance =  Instantiate(_gameMan).GetComponent<GameManager>();
+            GameManager.Instance =  Instantiate(gameMan).GetComponent<GameManager>();
         }
 
     }

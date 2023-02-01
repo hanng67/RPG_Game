@@ -6,56 +6,56 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField]
-    private Text _dialogText;
+    private Text dialogText;
 
     [SerializeField]
-    private Text _nameText;
+    private Text nameText;
 
     [SerializeField]
-    private GameObject _dialogBox;
+    private GameObject dialogBox;
 
     [SerializeField]
-    private GameObject _nameBox;
+    private GameObject nameBox;
 
     [SerializeField]
-    private string[] _dialogLines;
+    private string[] dialogLines;
 
-    private int _currentLine;
+    private int currentLine;
 
-    private bool _justStarted;
+    private bool justStarted;
 
-    public static DialogManager instance;
+    public static DialogManager Instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_dialogBox.activeInHierarchy)
+        if (dialogBox.activeInHierarchy)
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                if (!_justStarted)
+                if (!justStarted)
                 {
-                    _currentLine++;
-                    if (_currentLine >= _dialogLines.Length)
+                    currentLine++;
+                    if (currentLine >= dialogLines.Length)
                     {
-                        _dialogBox.SetActive(false);
-                        GameManager.instance.dialogActive = false;
+                        dialogBox.SetActive(false);
+                        GameManager.Instance.dialogActive = false;
                     }
                     else
                     {
                         CheckIfName();
-                        _dialogText.text = _dialogLines[_currentLine];
+                        dialogText.text = dialogLines[currentLine];
                     }
                 }
                 else
                 {
-                    _justStarted = false;
+                    justStarted = false;
                 }
             }
         }   
@@ -63,30 +63,30 @@ public class DialogManager : MonoBehaviour
 
     public void ShowDialog(string[] newlines, bool isPerson)
     {
-        _dialogLines = newlines;
+        dialogLines = newlines;
 
-        _currentLine = 0;
+        currentLine = 0;
         CheckIfName();
-        _dialogText.text = _dialogLines[_currentLine];
-        _dialogBox.SetActive(true);
-        _nameBox.SetActive(isPerson);
+        dialogText.text = dialogLines[currentLine];
+        dialogBox.SetActive(true);
+        nameBox.SetActive(isPerson);
 
-        GameManager.instance.dialogActive = true;
+        GameManager.Instance.dialogActive = true;
 
-        _justStarted = true;
+        justStarted = true;
     }
 
     public void CheckIfName()
     {
-        if (_dialogLines[_currentLine].StartsWith("n-"))
+        if (dialogLines[currentLine].StartsWith("n-"))
         {
-            _nameText.text = _dialogLines[_currentLine].Replace("n-", "");
-            _currentLine++;
+            nameText.text = dialogLines[currentLine].Replace("n-", "");
+            currentLine++;
         }
     }
 
     public bool GetActiveDialogBox()
     {
-        return _dialogBox.activeInHierarchy;
+        return dialogBox.activeInHierarchy;
     }
 }

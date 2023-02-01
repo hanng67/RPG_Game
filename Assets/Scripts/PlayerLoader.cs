@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerLoader : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject _player;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerController.instance == null)
+        if(PlayerController.Instance == null)
         {
-            Instantiate(_player);
+            Instantiate(Player);
         }
     }
 }

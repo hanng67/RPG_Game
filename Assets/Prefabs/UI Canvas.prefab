@@ -21650,8 +21650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b972a117b47f94b8d8bca8aacc4b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeScene: {fileID: 264440199104734344}
-  _fadeSpeed: 1
+  fadeScene: {fileID: 264440199104734344}
+  fadeSpeed: 1
 --- !u!114 &2092207224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21664,16 +21664,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68b54923bfd88647bd0ed8ef5359e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogText: {fileID: 1708439387}
-  _nameText: {fileID: 1001252205}
-  _dialogBox: {fileID: 1111122621}
-  _nameBox: {fileID: 82329864}
-  _dialogLines:
-  - This
-  - is
-  - a
-  - test
-  - array
+  dialogText: {fileID: 1708439387}
+  nameText: {fileID: 1001252205}
+  dialogBox: {fileID: 1111122621}
+  nameBox: {fileID: 82329864}
+  dialogLines: []
 --- !u!114 &2092207225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21686,105 +21681,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0fdb10ed038ee48b6b2edb6b4b7a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _theMenu: {fileID: 1428046753}
-  _windows:
-  - {fileID: 1225684666}
-  - {fileID: 688679378}
-  _nameText:
-  - {fileID: 580799196}
-  - {fileID: 38407715}
-  - {fileID: 1435453166}
-  _hpText:
-  - {fileID: 2088117998}
-  - {fileID: 1219509765}
-  - {fileID: 1445246936}
-  _mpText:
-  - {fileID: 277281111}
-  - {fileID: 1915806770}
-  - {fileID: 1842773254}
-  _lvlText:
-  - {fileID: 1315955390}
-  - {fileID: 1142724068}
-  - {fileID: 335411492}
-  _expText:
-  - {fileID: 716188987}
-  - {fileID: 1463421172}
-  - {fileID: 1869764955}
-  _expSlider:
-  - {fileID: 746985538}
-  - {fileID: 1768573932}
-  - {fileID: 54182568}
-  _charImage:
-  - {fileID: 35483877}
-  - {fileID: 121753808}
-  - {fileID: 652037121}
-  _charStatHolder:
-  - {fileID: 2103750264}
-  - {fileID: 1370397340}
-  - {fileID: 2071066334}
-  _statusButton:
-  - {fileID: 1447669386}
-  - {fileID: 550277430}
-  - {fileID: 1095053059}
-  _statusName: {fileID: 1477162835}
-  _statusHP: {fileID: 298475460}
-  _statusMP: {fileID: 1746481142}
-  _statusStrengh: {fileID: 1369293086}
-  _statusDefence: {fileID: 1588719739}
-  _statusWpnEqpd: {fileID: 1288516223}
-  _statusWnpPwr: {fileID: 642775888}
-  _statusArmrEqpd: {fileID: 1766983350}
-  _statusArmrPwr: {fileID: 1581093225}
-  _statusExp: {fileID: 1103511769}
-  _statusImage: {fileID: 962975047}
-  itemButtons:
-  - {fileID: 2015843258}
-  - {fileID: 1631402048}
-  - {fileID: 1486158752}
-  - {fileID: 1820306578}
-  - {fileID: 264912530}
-  - {fileID: 862945770}
-  - {fileID: 1068852854}
-  - {fileID: 165798725}
-  - {fileID: 914660634}
-  - {fileID: 208664950}
-  - {fileID: 1780035066}
-  - {fileID: 1886519092}
-  - {fileID: 1669115864}
-  - {fileID: 1518941371}
-  - {fileID: 146162535}
-  - {fileID: 905079143}
-  - {fileID: 1794877618}
-  - {fileID: 1681057838}
-  - {fileID: 1754614102}
-  - {fileID: 1781977803}
-  - {fileID: 1842339531}
-  - {fileID: 1657534010}
-  - {fileID: 400995166}
-  - {fileID: 695733061}
-  - {fileID: 2037573142}
-  - {fileID: 1399171587}
-  - {fileID: 809722772}
-  - {fileID: 907247700}
-  - {fileID: 708903520}
-  - {fileID: 1706366505}
-  - {fileID: 1445183464}
-  - {fileID: 1281796756}
-  - {fileID: 206495972}
-  - {fileID: 433445253}
-  - {fileID: 1999076476}
-  - {fileID: 300551501}
-  - {fileID: 262923807}
-  - {fileID: 110099161}
-  - {fileID: 1990168967}
-  - {fileID: 1931692469}
-  selectedItem: 
-  activeItem: {fileID: 0}
-  itemName: {fileID: 841234457}
-  itemDescription: {fileID: 869072145}
-  useBtnText: {fileID: 1605671449}
-  itemCharChoiceMenu: {fileID: 1381022590}
-  itemCharChoiceNames:
-  - {fileID: 1332719290}
-  - {fileID: 1262739321}
-  - {fileID: 1396777117}
+  theMenu: {fileID: 0}
+  windows: []
+  nameText: []
+  hpText: []
+  mpText: []
+  lvlText: []
+  expText: []
+  expSlider: []
+  charImage: []
+  charStatHolder: []
+  statusButton: []
+  statusName: {fileID: 0}
+  statusHP: {fileID: 0}
+  statusMP: {fileID: 0}
+  statusStrengh: {fileID: 0}
+  statusDefence: {fileID: 0}
+  statusWpnEqpd: {fileID: 0}
+  statusWnpPwr: {fileID: 0}
+  statusArmrEqpd: {fileID: 0}
+  statusArmrPwr: {fileID: 0}
+  statusExp: {fileID: 0}
+  statusImage: {fileID: 0}
+  ItemButtons: []
+  SelectedItem: 
+  ActiveItem: {fileID: 0}
+  ItemName: {fileID: 0}
+  ItemDescription: {fileID: 0}
+  UseBtnText: {fileID: 0}
+  ItemCharChoiceMenu: {fileID: 0}
+  ItemCharChoiceNames: []

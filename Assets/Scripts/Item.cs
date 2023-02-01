@@ -5,77 +5,65 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [Header("Item Type")]
-    public bool isItem;
-    public bool isWeapon;
-    public bool isArmor;
+    public bool IsItem;
+    public bool IsWeapon;
+    public bool IsArmor;
 
     [Header("Item Details")]
-    public string itemName;
+    public string ItemName;
     [TextArea(5, 1)]
-    public string description;
-    public int value;
-    public Sprite itemSprite;
+    public string Description;
+    public int Value;
+    public Sprite ItemSprite;
     [Space]
-    public int amountToChange;
-    public bool affectHP, affectMP, affectStr;
+    public int AmountToChange;
+    public bool AffectHP, AffectMP, AffectStr;
 
     [Header("Weapon/Armor Details")]
     public int weaponStrength;
 
     public int armorStrength;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Use(int charToUseOn)
     {
-        CharStats selectedChar = GameManager.instance.playerStats[charToUseOn];
+        CharStats selectedChar = GameManager.Instance.playerStats[charToUseOn];
         IsUseItem(ref selectedChar);
         IsEquipWeapon(ref selectedChar);
         IsEquipArmor(ref selectedChar);
-        GameManager.instance.RemoveItem(itemName);
+        GameManager.Instance.RemoveItem(ItemName);
     }
 
     private void IsUseItem(ref CharStats selectedChar)
     {
-        if (!isItem) return;
+        if (!IsItem) return;
 
-        if (affectHP)
+        if (AffectHP)
         {
-            selectedChar.currentHP += value;
-            if (selectedChar.currentHP > selectedChar.maxHP) selectedChar.currentHP = selectedChar.maxHP;
+            selectedChar.CurrentHP += Value;
+            if (selectedChar.CurrentHP > selectedChar.MaxHP) selectedChar.CurrentHP = selectedChar.MaxHP;
         }
-        else if (affectMP)
+        else if (AffectMP)
         {
-            selectedChar.currentMP += value;
-            if (selectedChar.currentMP > selectedChar.maxMP) selectedChar.currentMP = selectedChar.maxMP;
+            selectedChar.CurrentMP += Value;
+            if (selectedChar.CurrentMP > selectedChar.MaxMP) selectedChar.CurrentMP = selectedChar.MaxMP;
         }
     }
 
     private void IsEquipWeapon(ref CharStats selectedChar)
     {
-        if (!isWeapon) return;
+        if (!IsWeapon) return;
 
-        GameManager.instance.AddItem(selectedChar.equippedWpn);
-        selectedChar.equippedWpn = itemName;
-        selectedChar.wpnPwr = weaponStrength;
+        GameManager.Instance.AddItem(selectedChar.EquippedWpn);
+        selectedChar.EquippedWpn = ItemName;
+        selectedChar.WpnPwr = weaponStrength;
     }
 
     private void IsEquipArmor(ref CharStats selectedChar)
     {
-        if (!isArmor) return;
+        if (!IsArmor) return;
 
-        GameManager.instance.AddItem(selectedChar.equippedArmr);
-        selectedChar.equippedArmr = itemName;
-        selectedChar.armrPwr = armorStrength;
+        GameManager.Instance.AddItem(selectedChar.EquippedArmr);
+        selectedChar.EquippedArmr = ItemName;
+        selectedChar.ArmrPwr = armorStrength;
     }
 }

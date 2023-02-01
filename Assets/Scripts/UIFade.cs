@@ -5,57 +5,57 @@ using UnityEngine.UI;
 
 public class UIFade : MonoBehaviour
 {
-    public static UIFade instance;
+    public static UIFade Instance;
 
     [SerializeField]
-    private Image _fadeScene;
+    private Image fadeScene;
 
     [SerializeField]
-    private float _fadeSpeed;
+    private float fadeSpeed;
 
-    private bool _shouldFadeToBlack;
-    private bool _shouldFadeFromBlack;
+    private bool shouldFadeToBlack;
+    private bool shouldFadeFromBlack;
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_shouldFadeToBlack)
+        if (shouldFadeToBlack)
         {
-            _fadeScene.color = new Color(_fadeScene.color.r, _fadeScene.color.g, _fadeScene.color.b, 
-                                        Mathf.MoveTowards(_fadeScene.color.a, 1f, _fadeSpeed * Time.deltaTime));
-            if(_fadeScene.color.a == 1f)
+            fadeScene.color = new Color(fadeScene.color.r, fadeScene.color.g, fadeScene.color.b, 
+                                        Mathf.MoveTowards(fadeScene.color.a, 1f, fadeSpeed * Time.deltaTime));
+            if(fadeScene.color.a == 1f)
             {
-                _shouldFadeToBlack = false;
+                shouldFadeToBlack = false;
             }
         }
 
-        if (_shouldFadeFromBlack)
+        if (shouldFadeFromBlack)
         {
-            _fadeScene.color = new Color(_fadeScene.color.r, _fadeScene.color.g, _fadeScene.color.b,
-                                        Mathf.MoveTowards(_fadeScene.color.a, 0f, _fadeSpeed * Time.deltaTime));
-            if (_fadeScene.color.a == 0f)
+            fadeScene.color = new Color(fadeScene.color.r, fadeScene.color.g, fadeScene.color.b,
+                                        Mathf.MoveTowards(fadeScene.color.a, 0f, fadeSpeed * Time.deltaTime));
+            if (fadeScene.color.a == 0f)
             {
-                _shouldFadeFromBlack = false;
+                shouldFadeFromBlack = false;
             }
         }
     }
 
     public void FadeToBlack()
     {
-        _shouldFadeToBlack = true;
-        _shouldFadeFromBlack = false;
+        shouldFadeToBlack = true;
+        shouldFadeFromBlack = false;
     }
 
     public void FadeFromBlack()
     {
-        _shouldFadeToBlack = false;
-        _shouldFadeFromBlack = true;
+        shouldFadeToBlack = false;
+        shouldFadeFromBlack = true;
     }
 }

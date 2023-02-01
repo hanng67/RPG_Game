@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     public CharStats[] playerStats;
 
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        Instance = this;
 
         DontDestroyOnLoad(gameObject);
         SortItems();
@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerController.instance.canMove = !(gameMenuOpen || dialogActive || fadingBetweenAreas);
+        PlayerController.Instance.CanMove = !(gameMenuOpen || dialogActive || fadingBetweenAreas);
     }
 
     public Item GetItemDetails(string itemToGrab)
     {
         for (int i = 0; i < referenceItems.Length; i++)
         {
-            if (referenceItems[i].itemName == itemToGrab)
+            if (referenceItems[i].ItemName == itemToGrab)
             {
                 return referenceItems[i];
             }
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
 
-        if (System.Array.Exists<Item>(referenceItems, (Item e) => e.itemName == itemToAdd))
+        if (System.Array.Exists<Item>(referenceItems, (Item e) => e.ItemName == itemToAdd))
         {
             itemsHeld[newItemPosition] = itemToAdd;
             numberOfItems[newItemPosition]++;
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError(itemToAdd + " Does Not Exist!");
         }
 
-        GameMenu.instance.ShowItems();
+        GameMenu.Instance.ShowItems();
     }
 
     public void RemoveItem(string itemToRemove)
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
                 itemsHeld[itemPosition] = "";
             }
 
-            GameMenu.instance.ShowItems();
+            GameMenu.Instance.ShowItems();
         }
         else
         {

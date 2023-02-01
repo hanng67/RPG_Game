@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f70f6c4e10bd6c48a3e4c3a901fd247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _theRB: {fileID: 2350292340958571472}
-  _moveSpeed: 10
-  _myAnim: {fileID: 2350292340958571475}
-  areaTransistionName: 
-  canMove: 1
+  theRB: {fileID: 2350292340958571472}
+  moveSpeed: 4
+  myAnim: {fileID: 2350292340958571475}
+  AreaTransistionName: 
+  CanMove: 1

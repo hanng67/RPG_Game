@@ -220,18 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929236cb1b5db75409d83803b6242fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newLines:
-  - n-Girl
-  - Please help me!
-  - n-Player
-  - Is everything ok?
-  - n-Girl
-  - No!
-  - My family was kidnapped by a dragon
-  - n-Player
-  - Don't Worry
-  - I'll save them!
-  _isPerson: 1
+  newLines: []
+  isPerson: 1
 --- !u!61 &130208368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16675,8 +16665,20 @@ PrefabInstance:
       value: 0.45917296
       objectReference: {fileID: 0}
     - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: areaToLoad
+      value: Countryside
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: waitToLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
       propertyPath: _areaToLoad
       value: Countryside
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: areaTransitionName
+      value: Contryside-Town
       objectReference: {fileID: 0}
     - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
       propertyPath: _areaTransitionName
@@ -18518,6 +18520,10 @@ PrefabInstance:
       value: CustomCamera
       objectReference: {fileID: 0}
     - target: {fileID: 9195058298143783222, guid: 79cb0c358b174ef4898d9894fa387a5a, type: 3}
+      propertyPath: theMap
+      value: 
+      objectReference: {fileID: 1198964099}
+    - target: {fileID: 9195058298143783222, guid: 79cb0c358b174ef4898d9894fa387a5a, type: 3}
       propertyPath: _theMap
       value: 
       objectReference: {fileID: 1198964099}
@@ -18597,9 +18603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929236cb1b5db75409d83803b6242fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newLines:
-  - Welcome to Town
-  _isPerson: 0
+  newLines: []
+  isPerson: 1
 --- !u!61 &1968570867
 BoxCollider2D:
   m_ObjectHideFlags: 0

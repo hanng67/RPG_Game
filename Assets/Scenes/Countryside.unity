@@ -151,12 +151,28 @@ PrefabInstance:
       value: 0.4413135
       objectReference: {fileID: 0}
     - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: areaToLoad
+      value: Town
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: waitToLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
       propertyPath: _areaToLoad
       value: Town
       objectReference: {fileID: 0}
     - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
       propertyPath: _waitToLoad
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: areaEntrance
+      value: 
+      objectReference: {fileID: 217556101}
+    - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+      propertyPath: areaTransitionName
+      value: Contryside-Town
       objectReference: {fileID: 0}
     - target: {fileID: 7828839334915352549, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
       propertyPath: _areaTransitionName
@@ -212,6 +228,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+--- !u!114 &217556101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5784261848732411809, guid: b1629a1cb30c4914abcfcfd4d26b84d5, type: 3}
+  m_PrefabInstance: {fileID: 217556100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d4a6424877a9e43a596b189acdcc27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309731288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,6 +5949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CustomCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 9195058298143783222, guid: 79cb0c358b174ef4898d9894fa387a5a, type: 3}
+      propertyPath: theMap
+      value: 
+      objectReference: {fileID: 309731291}
     - target: {fileID: 9195058298143783222, guid: 79cb0c358b174ef4898d9894fa387a5a, type: 3}
       propertyPath: _theMap
       value: 
