@@ -9,7 +9,7 @@ public class ItemButton : MonoBehaviour
     public Text amountText;
     public int buttonValue;
 
-    private Item _selectedItem = null;
+    private ItemClone _selectedItem = null;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +27,10 @@ public class ItemButton : MonoBehaviour
     {
         _selectedItem = null;
 
-        if(GameManager.Instance.itemsHeld[buttonValue] != "")
-        {
-            _selectedItem = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[buttonValue]);
-        }
+        // if(GameManager.Instance.itemsHeld[buttonValue] != "")
+        // {
+        //     _selectedItem = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[buttonValue]);
+        // }
 
         GameMenu.Instance.SelectItem(_selectedItem);
     }

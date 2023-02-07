@@ -7575,3 +7575,76 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1001 &9203661256118587876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9203661257105327372, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+    - target: {fileID: 9203661257105327372, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080165, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_Name
+      value: Health Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: Item.Stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
+    - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: item.Stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}

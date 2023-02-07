@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
 
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas;
 
-    public string[] itemsHeld;
-    public int[] numberOfItems;
-    public Item[] referenceItems;
+    // public string[] itemsHeld;
+    // public int[] numberOfItems;
+    public ItemClone[] referenceItems;
+    public InventoryObject BagInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
 
         DontDestroyOnLoad(gameObject);
-        SortItems();
+        // SortItems();
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
         PlayerController.Instance.CanMove = !(gameMenuOpen || dialogActive || fadingBetweenAreas);
     }
 
-    public Item GetItemDetails(string itemToGrab)
+    public ItemClone GetItemDetails(string itemToGrab)
     {
         for (int i = 0; i < referenceItems.Length; i++)
         {
@@ -68,68 +69,69 @@ public class GameManager : MonoBehaviour
         //    }
         //}
 
-        for (int i = 0; i < itemsHeld.Length - 1; i++)
-        {
-            if (itemsHeld[i] != "") continue;
+        // for (int i = 0; i < itemsHeld.Length - 1; i++)
+        // {
+        //     if (itemsHeld[i] != "") continue;
 
-            for (int j = i + 1; j < itemsHeld.Length; j++)
-            {
-                if (itemsHeld[j] == "") continue;
+        //     for (int j = i + 1; j < itemsHeld.Length; j++)
+        //     {
+        //         if (itemsHeld[j] == "") continue;
 
-                SwapItems(i, j);
-                break;
-            }
-        }
+        //         SwapItems(i, j);
+        //         break;
+        //     }
+        // }
     }
 
-    private void SwapItems(int firstIdx, int secondIdx)
+    // private void SwapItems(int firstIdx, int secondIdx)
+    // {
+    //     itemsHeld[firstIdx] = itemsHeld[secondIdx];
+    //     itemsHeld[secondIdx] = "";
+
+    //     numberOfItems[firstIdx] = numberOfItems[secondIdx];
+    //     numberOfItems[secondIdx] = 0;
+    // }
+
+    public void AddItem(ItemInfo item)
     {
-        itemsHeld[firstIdx] = itemsHeld[secondIdx];
-        itemsHeld[secondIdx] = "";
+        // if (itemToAdd == "") return;
 
-        numberOfItems[firstIdx] = numberOfItems[secondIdx];
-        numberOfItems[secondIdx] = 0;
-    }
+        // int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
 
-    public void AddItem(string itemToAdd)
-    {
-        if (itemToAdd == "") return;
+        // if (System.Array.Exists<ItemClone>(referenceItems, (ItemClone e) => e.ItemName == itemToAdd))
+        // {
+        //     itemsHeld[newItemPosition] = itemToAdd;
+        //     numberOfItems[newItemPosition]++;
+        // }
+        // else
+        // {
+        //     Debug.LogError(itemToAdd + " Does Not Exist!");
+        // }
+        BagInventory.AddItem(item);
 
-        int newItemPosition = System.Array.FindIndex<string>(itemsHeld, (string e) => e == itemToAdd || e == "");
-
-        if (System.Array.Exists<Item>(referenceItems, (Item e) => e.ItemName == itemToAdd))
-        {
-            itemsHeld[newItemPosition] = itemToAdd;
-            numberOfItems[newItemPosition]++;
-        }
-        else
-        {
-            Debug.LogError(itemToAdd + " Does Not Exist!");
-        }
-
-        GameMenu.Instance.ShowItems();
+        // GameMenu.Instance.ShowItems();
     }
 
     public void RemoveItem(string itemToRemove)
     {
-        if (itemToRemove == "") return;
+        // if (itemToRemove == "") return;
 
-        int itemPosition = System.Array.IndexOf(itemsHeld, itemToRemove);
+        // int itemPosition = System.Array.IndexOf(itemsHeld, itemToRemove);
 
-        if (itemPosition != -1)
-        {
-            numberOfItems[itemPosition]--;
+        // if (itemPosition != -1)
+        // {
+        //     numberOfItems[itemPosition]--;
 
-            if (numberOfItems[itemPosition] <= 0)
-            {
-                itemsHeld[itemPosition] = "";
-            }
+        //     if (numberOfItems[itemPosition] <= 0)
+        //     {
+        //         itemsHeld[itemPosition] = "";
+        //     }
 
-            GameMenu.Instance.ShowItems();
-        }
-        else
-        {
-            Debug.LogError("Couldn't Find " + itemToRemove);
-        }
+        //     GameMenu.Instance.ShowItems();
+        // }
+        // else
+        // {
+        //     Debug.LogError("Couldn't Find " + itemToRemove);
+        // }
     }
 }

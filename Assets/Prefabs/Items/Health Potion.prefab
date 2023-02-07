@@ -95,16 +95,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183d4942582cf804f83ea63bbd26ddcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isItem: 1
-  isWeapon: 0
-  isArmor: 0
-  itemName: Health Potion
-  description: Restores 100 HP
-  value: 5
-  itemSprite: {fileID: 21300000, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
-  amountToChange: 100
-  affectHP: 1
-  affectMP: 0
-  affectStr: 0
+  IsItem: 1
+  IsWeapon: 0
+  IsArmor: 0
+  ItemName: Health Potion
+  Description: 
+  Value: 0
+  ItemSprite: {fileID: 21300000, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  AmountToChange: 0
+  AffectHP: 1
+  AffectMP: 0
+  AffectStr: 0
   weaponStrength: 0
   armorStrength: 0

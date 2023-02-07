@@ -14,16 +14,9 @@ public class GameMenu : MonoBehaviour
     private CharStats[] playerStats;
 
     [SerializeField]
-    private Text[] nameText, hpText, mpText, lvlText, expText;
-
+    private GameObject charInfoContainer;
     [SerializeField]
-    private Slider[] expSlider;
-
-    [SerializeField]
-    private Image[] charImage;
-
-    [SerializeField]
-    private GameObject[] charStatHolder;
+    private CharacterInfo[] charInfos;
 
     [SerializeField]
     private GameObject[] statusButton;
@@ -36,7 +29,7 @@ public class GameMenu : MonoBehaviour
 
     public ItemButton[] ItemButtons;
     public string SelectedItem;
-    public Item ActiveItem;
+    public ItemClone ActiveItem;
     public Text ItemName, ItemDescription, UseBtnText;
 
     public GameObject ItemCharChoiceMenu;
@@ -76,19 +69,12 @@ public class GameMenu : MonoBehaviour
         {
             if (playerStats[i].gameObject.activeInHierarchy)
             {
-                charStatHolder[i].SetActive(true);
-                nameText[i].text = playerStats[i].CharName;
-                hpText[i].text = "HP: " + playerStats[i].CurrentHP + "/" + playerStats[i].MaxHP;
-                mpText[i].text = "MP: " + playerStats[i].CurrentMP + "/" + playerStats[i].MaxMP;
-                lvlText[i].text = "Lvl: " + playerStats[i].PlayerLevel;
-                expText[i].text = "" + playerStats[i].CurrentExp + "/" + playerStats[i].ExpToNextLevel[playerStats[i].PlayerLevel];
-                expSlider[i].maxValue = playerStats[i].ExpToNextLevel[playerStats[i].PlayerLevel];
-                expSlider[i].value = playerStats[i].CurrentExp;
-                charImage[i].sprite = playerStats[i].CharImage;
+                charInfos[i].gameObject.SetActive(true);
+                charInfos[i].UpdateCharacterInfo(playerStats[i]);
             }
             else
             {
-                charStatHolder[i].SetActive(false);
+                charInfos[i].gameObject.SetActive(false);
             }
         }
     }
@@ -155,25 +141,25 @@ public class GameMenu : MonoBehaviour
     {
         GameManager.Instance.SortItems();
 
-        for (int i = 0; i < ItemButtons.Length; i++)
-        {
-            ItemButtons[i].buttonValue = i;
+        // for (int i = 0; i < ItemButtons.Length; i++)
+        // {
+        //     ItemButtons[i].buttonValue = i;
 
-            if (GameManager.Instance.itemsHeld[i] != "")
-            {
-                ItemButtons[i].buttonImage.gameObject.SetActive(true);
-                ItemButtons[i].buttonImage.sprite = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[i]).ItemSprite;
-                ItemButtons[i].amountText.text = GameManager.Instance.numberOfItems[i].ToString();
-            }
-            else
-            {
-                ItemButtons[i].buttonImage.gameObject.SetActive(false);
-                ItemButtons[i].amountText.text = "";
-            }
-        }
+        //     if (GameManager.Instance.itemsHeld[i] != "")
+        //     {
+        //         ItemButtons[i].buttonImage.gameObject.SetActive(true);
+        //         ItemButtons[i].buttonImage.sprite = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[i]).ItemSprite;
+        //         ItemButtons[i].amountText.text = GameManager.Instance.numberOfItems[i].ToString();
+        //     }
+        //     else
+        //     {
+        //         ItemButtons[i].buttonImage.gameObject.SetActive(false);
+        //         ItemButtons[i].amountText.text = "";
+        //     }
+        // }
     }
 
-    public void SelectItem(Item newItem)
+    public void SelectItem(ItemClone newItem)
     {
         ActiveItem = newItem;
         if (newItem == null) return;

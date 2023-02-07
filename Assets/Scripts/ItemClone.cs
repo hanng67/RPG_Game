@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class ItemClone : MonoBehaviour
 {
     [Header("Item Type")]
     public bool IsItem;
@@ -53,7 +53,7 @@ public class Item : MonoBehaviour
     {
         if (!IsWeapon) return;
 
-        GameManager.Instance.AddItem(selectedChar.EquippedWpn);
+        // GameManager.Instance.AddItem(selectedChar.EquippedWpn);
         selectedChar.EquippedWpn = ItemName;
         selectedChar.WpnPwr = weaponStrength;
     }
@@ -62,7 +62,7 @@ public class Item : MonoBehaviour
     {
         if (!IsArmor) return;
 
-        GameManager.Instance.AddItem(selectedChar.EquippedArmr);
+        // GameManager.Instance.AddItem(selectedChar.EquippedArmr);
         selectedChar.EquippedArmr = ItemName;
         selectedChar.ArmrPwr = armorStrength;
     }
