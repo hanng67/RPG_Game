@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public string AreaTransistionName;
 
     public static PlayerController Instance;
+    public InventoryObject BagInventory;
 
     private Vector3 bottomLeftLimit;
     private Vector3 topRightLimit;

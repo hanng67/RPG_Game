@@ -158,4 +158,5 @@ MonoBehaviour:
   moveSpeed: 4
   myAnim: {fileID: 2350292340958571475}
   AreaTransistionName: 
+  BagInventory: {fileID: 11400000, guid: eec0a7759b06ac649a0e78681cac7285, type: 2}
   CanMove: 1

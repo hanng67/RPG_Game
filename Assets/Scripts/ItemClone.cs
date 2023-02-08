@@ -30,7 +30,7 @@ public class ItemClone : MonoBehaviour
         IsUseItem(ref selectedChar);
         IsEquipWeapon(ref selectedChar);
         IsEquipArmor(ref selectedChar);
-        GameManager.Instance.RemoveItem(ItemName);
+        // GameManager.Instance.RemoveItem(ItemName);
     }
 
     private void IsUseItem(ref CharStats selectedChar)

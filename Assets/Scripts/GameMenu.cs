@@ -26,9 +26,7 @@ public class GameMenu : MonoBehaviour
 
     [SerializeField]
     private Image statusImage;
-
-    public ItemButton[] ItemButtons;
-    public string SelectedItem;
+    
     public ItemClone ActiveItem;
     public Text ItemName, ItemDescription, UseBtnText;
 
@@ -137,28 +135,6 @@ public class GameMenu : MonoBehaviour
         statusImage.sprite = playerStats[selected].CharImage;
     }
 
-    public void ShowItems()
-    {
-        GameManager.Instance.SortItems();
-
-        // for (int i = 0; i < ItemButtons.Length; i++)
-        // {
-        //     ItemButtons[i].buttonValue = i;
-
-        //     if (GameManager.Instance.itemsHeld[i] != "")
-        //     {
-        //         ItemButtons[i].buttonImage.gameObject.SetActive(true);
-        //         ItemButtons[i].buttonImage.sprite = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[i]).ItemSprite;
-        //         ItemButtons[i].amountText.text = GameManager.Instance.numberOfItems[i].ToString();
-        //     }
-        //     else
-        //     {
-        //         ItemButtons[i].buttonImage.gameObject.SetActive(false);
-        //         ItemButtons[i].amountText.text = "";
-        //     }
-        // }
-    }
-
     public void SelectItem(ItemClone newItem)
     {
         ActiveItem = newItem;
@@ -179,10 +155,7 @@ public class GameMenu : MonoBehaviour
 
     public void DiscardItem()
     {
-        if (ActiveItem != null)
-        {
-            GameManager.Instance.RemoveItem(ActiveItem.name);
-        }
+        
     }
 
     public void OpenItemCharChoiceMenu()

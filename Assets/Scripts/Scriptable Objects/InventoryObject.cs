@@ -6,12 +6,11 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public Dictionary<string, ItemInfo> Container = new Dictionary<string, ItemInfo>();
-    public List<ItemInfo> Container1 = new List<ItemInfo>();
-    private int maxNumberInventory;
+    public int MaxNumberInventory { get; private set; }
 
     private void Awake()
     {
-        maxNumberInventory = 40;
+        MaxNumberInventory = 40;
     }
 
     public void AddItem(ItemInfo item)
@@ -21,10 +20,9 @@ public class InventoryObject : ScriptableObject
             Container[item.Stats.Name].Amount += item.Amount;
             return;
         }
-        if (Container.Count == maxNumberInventory) return;
+        if (Container.Count == MaxNumberInventory) return;
 
         Container.Add(item.Stats.Name, item);
-        Container1.Add(item);
     }
 
     public void RemoveItem(ItemInfo item)
