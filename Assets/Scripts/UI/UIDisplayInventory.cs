@@ -26,10 +26,10 @@ public class UIDisplayInventory : MonoBehaviour
         if(isNeedResetInfo) ResetInventoryInfo();
 
         int idx = 0;
-        foreach (KeyValuePair<string, ItemInfo> inventorySlot in Inventory.Container)
+        foreach (KeyValuePair<string, ItemSlot> inventorySlot in Inventory.Container)
         {
-            ItemInfo itemInfo = inventorySlot.Value;
-            InventorySlots[idx++].UpdateInfo(itemInfo.Stats.Sprite, $"{itemInfo.Amount}");
+            ItemSlot itemInfo = inventorySlot.Value;
+            InventorySlots[idx++].UpdateInfo(itemInfo.Item.Icon, $"{itemInfo.Quantity}");
         }
     }
 

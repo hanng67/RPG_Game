@@ -91,8 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9203661257140080167}
-  - component: {fileID: 9203661257140080166}
   - component: {fileID: 7606752402439267003}
+  - component: {fileID: 5691938213772603711}
   - component: {fileID: 4699936847362647036}
   m_Layer: 0
   m_Name: GroundItem
@@ -116,22 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9203661257140080166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9203661257140080165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b7c8c0631feda4aad922f37360fb1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item:
-    Stats: {fileID: 0}
-    Amount: 1
-  icon: {fileID: 9203661257105327372}
 --- !u!58 &7606752402439267003
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,6 +132,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &5691938213772603711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203661257140080165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3e3a2fd37ad904c97b3b353ad7b80d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemSlot:
+    Item: {fileID: 0}
+    Quantity: 1
+  icon: {fileID: 9203661257105327372}
 --- !u!114 &4699936847362647036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9203661257140080165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad8d656a898865489c4e88f3d0bf44c, type: 3}
+  m_Script: {fileID: 11500000, guid: 80af5646ece6c8945884ad7c0dc6fc01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

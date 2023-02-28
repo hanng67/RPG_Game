@@ -7582,6 +7582,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5691938213772603711, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: ItemSlot.Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
     - target: {fileID: 9203661257105327372, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7595,11 +7599,23 @@ PrefabInstance:
       value: Health Potion
       objectReference: {fileID: 0}
     - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 9203661256118587877}
+    - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
       propertyPath: Item.Stats
       value: 
       objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
     - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
       propertyPath: item.Stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
+    - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: ItemSlot.Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
+    - target: {fileID: 9203661257140080166, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+      propertyPath: Item.ItemStats
       value: 
       objectReference: {fileID: 11400000, guid: 001ab5551cc2ac0448357fd69e79f4e3, type: 2}
     - target: {fileID: 9203661257140080167, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
@@ -7648,3 +7664,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+--- !u!212 &9203661256118587877 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9203661257105327372, guid: e2760aba3a8b5784b9e176c18a4c8cf2, type: 3}
+  m_PrefabInstance: {fileID: 9203661256118587876}
+  m_PrefabAsset: {fileID: 0}

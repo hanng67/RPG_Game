@@ -1,21 +1,8 @@
+using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 public class GameDefine
 {
-    public enum Attributes
-    {
-        Health,
-        Mana,
-        Attack,
-        Defend,
-        Agility,
-        Strength,
-        Intelligent,
-        Stamina
-    }
 
-    public enum ItemTypes
-    {
-        Potion,
-        Equipment
-    }
 }
