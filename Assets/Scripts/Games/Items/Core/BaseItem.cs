@@ -24,8 +24,8 @@ public class BaseItem : ScriptableObject
         StringBuilder builder = new StringBuilder();
         
         builder.Append($"<size=35><color={Rarity.TextColour}>{Name}</color></size>").AppendLine();
-        builder.Append($"<color={Rarity.TextColour}>{Rarity.Name}</color>").AppendLine();
-        builder.Append("<color=green>").Append(Description).Append("</color>").AppendLine();
+        builder.Append($"<color=olive>{Rarity.Name}</color>").AppendLine();
+        builder.Append($"<color={Rarity.TextColour}>{Description}</color>").AppendLine();
         builder.Append("Sell Price: ").Append(SellPrice).Append(" Gold");
 
         return builder.ToString();

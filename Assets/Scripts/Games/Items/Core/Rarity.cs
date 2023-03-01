@@ -26,7 +26,7 @@ public enum RarityColour
     white,
     cyan,
     purple,
-    blue,
+    teal,
     orange,
     yellow,
 }
