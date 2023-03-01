@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3637293861050260041}
   - component: {fileID: 3637293861050260038}
   - component: {fileID: 6333677723152723545}
+  - component: {fileID: 4581199969771734537}
   m_Layer: 5
   m_Name: UIInventorySlot
   m_TagString: Untagged
@@ -136,7 +137,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemImage: {fileID: 3637293861546025584}
-  TxtAmount: {fileID: 3637293861238603629}
+  TxtQuantity: {fileID: 3637293861238603629}
+--- !u!114 &4581199969771734537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637293861050260036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6333677723152723545}
+          m_TargetAssemblyTypeName: UIInventorySlot, Assembly-CSharp
+          m_MethodName: OnMouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6333677723152723545}
+          m_TargetAssemblyTypeName: UIInventorySlot, Assembly-CSharp
+          m_MethodName: OnMouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3637293861238603624
 GameObject:
   m_ObjectHideFlags: 0

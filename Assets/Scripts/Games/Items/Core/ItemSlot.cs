@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemSlot
 {
     public BaseItem Item;
-    public int Quantity = 1;
+    public int Quantity;
 
     public ItemSlot() { }
 

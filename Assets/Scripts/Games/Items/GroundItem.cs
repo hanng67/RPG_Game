@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundItem : MonoBehaviour
 {
-    public ItemSlot ItemSlot;
+    public ItemSlot ItemSlot = new ItemSlot(null, 1);
     [SerializeField] private SpriteRenderer icon;
 
     private void OnValidate()
@@ -15,5 +15,11 @@ public class GroundItem : MonoBehaviour
 
     private void Reset() {
         icon = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    public void UpdateInfo(ItemSlot itemSlot){
+        ItemSlot = itemSlot;
+        transform.name = ItemSlot.Item.Name;
+        icon.sprite = ItemSlot.Item.Icon;
     }
 }

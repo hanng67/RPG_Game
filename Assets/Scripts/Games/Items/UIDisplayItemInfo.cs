@@ -5,51 +5,52 @@ using UnityEngine.UI;
 
 public class UIDisplayItemInfo : MonoBehaviour
 {
+    [SerializeField] private GameObject popupCanvasObject = null;
     public RectTransform HoverInfoPopup;
     public Text TextInfo;
     [SerializeField] private Vector3 offset = new Vector3(0, 50, 0);
     [SerializeField] private int padding = 25;
 
-    private Canvas popupRange;
+    private Canvas popupCanvas;
 
     private void Start()
     {
-        popupRange = GetComponentInParent<Canvas>();
+        popupCanvas = popupCanvasObject.GetComponent<Canvas>();
         Events.EventMouseStartHoverItem.AddListener(DisplayInfo);
         Events.EventMouseEndHoverItem.AddListener(HideInfo);
     }
     private void Update() => FollowCursor();
-    public void HideInfo() => HoverInfoPopup.gameObject.SetActive(false);
+    public void HideInfo() => popupCanvasObject.SetActive(false);
 
     public void DisplayInfo(string itemInfo)
     {
         TextInfo.text = itemInfo;
-        HoverInfoPopup.gameObject.SetActive(true);
+        popupCanvasObject.SetActive(true);
     }
 
     public void FollowCursor()
     {
-        if (!HoverInfoPopup.gameObject.activeSelf) return;
+        if (!popupCanvasObject.activeSelf) return;
 
         Vector3 newPos = Input.mousePosition + offset;
         newPos.z = 0f;
 
-        float rightEdgeToScreenEdgeDistance = Screen.width - (newPos.x + HoverInfoPopup.rect.width * popupRange.scaleFactor / 2) - padding;
+        float rightEdgeToScreenEdgeDistance = Screen.width - (newPos.x + HoverInfoPopup.rect.width * popupCanvas.scaleFactor / 2) - padding;
         if (rightEdgeToScreenEdgeDistance < 0)
         {
             newPos.x += rightEdgeToScreenEdgeDistance;
         }
 
-        float leftEdgeToScreenEdgeDistance = 0 - (newPos.x - HoverInfoPopup.rect.width * popupRange.scaleFactor / 2) + padding;
+        float leftEdgeToScreenEdgeDistance = 0 - (newPos.x - HoverInfoPopup.rect.width * popupCanvas.scaleFactor / 2) + padding;
         if (leftEdgeToScreenEdgeDistance > 0)
         {
             newPos.x += leftEdgeToScreenEdgeDistance;
         }
 
-        float topEdgeToScreenEdgeDistance = Screen.height - (newPos.x + HoverInfoPopup.rect.height * popupRange.scaleFactor / 2) - padding;
+        float topEdgeToScreenEdgeDistance = Screen.height - (newPos.y + HoverInfoPopup.rect.height * popupCanvas.scaleFactor) - padding;
         if (topEdgeToScreenEdgeDistance < 0)
         {
-            newPos.x += topEdgeToScreenEdgeDistance;
+            newPos.y += topEdgeToScreenEdgeDistance;
         }
 
         HoverInfoPopup.position = newPos;

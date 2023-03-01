@@ -13,7 +13,7 @@ public class UIDisplayInventory : MonoBehaviour
         for (int i = 0; i < Inventory.MaxNumberInventory; i++)
         {
             GameObject inventorySlot = Instantiate(InventorySlotPrefab, Container.transform) as GameObject;
-            inventorySlot.GetComponent<UIInventorySlot>().UpdateInfo();
+            inventorySlot.GetComponent<UIInventorySlot>().UpdateInfo(new ItemSlot());
             InventorySlots.Add(inventorySlot.GetComponent<UIInventorySlot>());
         }
     }
@@ -29,14 +29,14 @@ public class UIDisplayInventory : MonoBehaviour
         foreach (KeyValuePair<string, ItemSlot> inventorySlot in Inventory.Container)
         {
             ItemSlot itemInfo = inventorySlot.Value;
-            InventorySlots[idx++].UpdateInfo(itemInfo.Item.Icon, $"{itemInfo.Quantity}");
+            InventorySlots[idx++].UpdateInfo(itemInfo);
         }
     }
 
     public void ResetInventoryInfo(){
         for (int i = 0; i < InventorySlots.Count; i++)
         {
-            InventorySlots[i].UpdateInfo();
+            InventorySlots[i].UpdateInfo(new ItemSlot());
         }
     }
 }
