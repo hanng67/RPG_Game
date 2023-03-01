@@ -32,6 +32,6 @@ public class ItemButton : MonoBehaviour
         //     _selectedItem = GameManager.Instance.GetItemDetails(GameManager.Instance.itemsHeld[buttonValue]);
         // }
 
-        GameMenu.Instance.SelectItem(_selectedItem);
+        UIMgr.Instance.UIGameMenu.SelectItem(_selectedItem);
     }
 }

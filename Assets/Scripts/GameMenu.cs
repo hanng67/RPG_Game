@@ -26,38 +26,12 @@ public class GameMenu : MonoBehaviour
 
     [SerializeField]
     private Image statusImage;
-    
+
     public ItemClone ActiveItem;
     public Text ItemName, ItemDescription, UseBtnText;
 
     public GameObject ItemCharChoiceMenu;
     public Text[] ItemCharChoiceNames;
-
-    public static GameMenu Instance;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire2"))
-        {
-            if (theMenu.activeInHierarchy)
-            {
-                CloseMenu();
-            }
-            else
-            {
-                theMenu.SetActive(true);
-                UpdateMainStat();
-                GameManager.Instance.gameMenuOpen = true;
-            }
-        }
-    }
 
     void UpdateMainStat()
     {
@@ -94,14 +68,21 @@ public class GameMenu : MonoBehaviour
         }
     }
 
-    public void CloseMenu()
+    public void OpenGameMenu()
+    {
+        gameObject.SetActive(true);
+        UpdateMainStat();
+        GameManager.Instance.gameMenuOpen = true;
+    }
+
+    public void CloseGameMenu()
     {
         for (int i = 0; i < windows.Length; i++)
         {
             windows[i].SetActive(false);
         }
 
-        theMenu.SetActive(false);
+        gameObject.SetActive(false);
         GameManager.Instance.gameMenuOpen = false;
     }
 
@@ -155,7 +136,7 @@ public class GameMenu : MonoBehaviour
 
     public void DiscardItem()
     {
-        
+
     }
 
     public void OpenItemCharChoiceMenu()
@@ -174,7 +155,8 @@ public class GameMenu : MonoBehaviour
         ItemCharChoiceMenu.SetActive(false);
     }
 
-    public void UseItem(int selectChar){
+    public void UseItem(int selectChar)
+    {
         ActiveItem.Use(selectChar);
         CloseItemCharChoiceMenu();
     }

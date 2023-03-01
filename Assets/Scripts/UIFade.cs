@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UIFade : MonoBehaviour
 {
-    public static UIFade Instance;
-
     [SerializeField]
     private Image fadeScene;
 
@@ -15,13 +13,6 @@ public class UIFade : MonoBehaviour
 
     private bool shouldFadeToBlack;
     private bool shouldFadeFromBlack;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
 
     // Update is called once per frame
     void Update()

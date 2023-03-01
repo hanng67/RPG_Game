@@ -8,7 +8,7 @@ public class EssentialLoader : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private GameObject UICanvasFade;
+    private GameObject uiMgr;
 
     [SerializeField]
     private GameObject gameMan;
@@ -22,9 +22,9 @@ public class EssentialLoader : MonoBehaviour
             PlayerController.Instance = clone;
         }
 
-        if (UIFade.Instance == null)
+        if (UIMgr.Instance == null)
         {
-            UIFade.Instance = Instantiate(UICanvasFade).GetComponent<UIFade>();
+            UIMgr.Instance = Instantiate(uiMgr).GetComponent<UIMgr>();
         }
 
         if(GameManager.Instance == null)

@@ -13,7 +13,7 @@ public class AreaEntrance : MonoBehaviour
         {
             PlayerController.Instance.transform.position = transform.position;
         }
-        UIFade.Instance.FadeFromBlack();
+        UIMgr.Instance.UIFadeSystem.FadeFromBlack();
         GameManager.Instance.fadingBetweenAreas = false;
     }
 

@@ -12,9 +12,6 @@ public class DialogManager : MonoBehaviour
     private Text nameText;
 
     [SerializeField]
-    private GameObject dialogBox;
-
-    [SerializeField]
     private GameObject nameBox;
 
     [SerializeField]
@@ -24,18 +21,10 @@ public class DialogManager : MonoBehaviour
 
     private bool justStarted;
 
-    public static DialogManager Instance;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Instance = this;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (dialogBox.activeInHierarchy)
+        if (gameObject.activeInHierarchy)
         {
             if (Input.GetButtonUp("Fire1"))
             {
@@ -44,7 +33,7 @@ public class DialogManager : MonoBehaviour
                     currentLine++;
                     if (currentLine >= dialogLines.Length)
                     {
-                        dialogBox.SetActive(false);
+                        gameObject.SetActive(false);
                         GameManager.Instance.dialogActive = false;
                     }
                     else
@@ -68,7 +57,7 @@ public class DialogManager : MonoBehaviour
         currentLine = 0;
         CheckIfName();
         dialogText.text = dialogLines[currentLine];
-        dialogBox.SetActive(true);
+        gameObject.SetActive(true);
         nameBox.SetActive(isPerson);
 
         GameManager.Instance.dialogActive = true;
@@ -85,8 +74,8 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    public bool GetActiveDialogBox()
+    public bool GetActiveStatus()
     {
-        return dialogBox.activeInHierarchy;
+        return gameObject.activeInHierarchy;
     }
 }

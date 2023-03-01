@@ -220,7 +220,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929236cb1b5db75409d83803b6242fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newLines: []
+  newLines:
+  - n-Linda
+  - Hello!
+  - My name is Linda!
+  - Something bad happened to my family
+  - A dragon came to the city a few days ago
+  - And it took my father away
+  - This is really creepy
+  - ' Wandering hero, can you bring back my miserable father'
+  - Please!!!!
   isPerson: 1
 --- !u!61 &130208368
 BoxCollider2D:
@@ -18603,8 +18612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929236cb1b5db75409d83803b6242fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newLines: []
-  isPerson: 1
+  newLines:
+  - 'Welcom to Salara Town '
+  isPerson: 0
 --- !u!61 &1968570867
 BoxCollider2D:
   m_ObjectHideFlags: 0
