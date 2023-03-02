@@ -8,7 +8,7 @@ public class UIDisplayItemInfo : MonoBehaviour
     [SerializeField] private GameObject popupCanvasObject = null;
     public RectTransform HoverInfoPopup;
     public Text TextInfo;
-    [SerializeField] private Vector3 offset = new Vector3(0, 50, 0);
+    [SerializeField] private Vector3 offset = new Vector3(0, -50, 0);
     [SerializeField] private int padding = 25;
 
     private Canvas popupCanvas;
@@ -32,25 +32,25 @@ public class UIDisplayItemInfo : MonoBehaviour
     {
         if (!popupCanvasObject.activeSelf) return;
 
-        Vector3 newPos = Input.mousePosition + offset;
+        Vector3 newPos = Input.mousePosition + (popupCanvas.scaleFactor * offset);
         newPos.z = 0f;
 
-        float rightEdgeToScreenEdgeDistance = Screen.width - (newPos.x + HoverInfoPopup.rect.width * popupCanvas.scaleFactor / 2) - padding;
+        float rightEdgeToScreenEdgeDistance = Screen.width - (newPos.x + popupCanvas.scaleFactor * ((HoverInfoPopup.rect.width / 2) + padding));
         if (rightEdgeToScreenEdgeDistance < 0)
         {
             newPos.x += rightEdgeToScreenEdgeDistance;
         }
 
-        float leftEdgeToScreenEdgeDistance = 0 - (newPos.x - HoverInfoPopup.rect.width * popupCanvas.scaleFactor / 2) + padding;
+        float leftEdgeToScreenEdgeDistance = 0 - (newPos.x - popupCanvas.scaleFactor * ((HoverInfoPopup.rect.width / 2) + padding));
         if (leftEdgeToScreenEdgeDistance > 0)
         {
             newPos.x += leftEdgeToScreenEdgeDistance;
         }
 
-        float topEdgeToScreenEdgeDistance = Screen.height - (newPos.y + HoverInfoPopup.rect.height * popupCanvas.scaleFactor) - padding;
-        if (topEdgeToScreenEdgeDistance < 0)
+        float bottomEdgeToScreenEdgeDistance = 0 - (newPos.y - popupCanvas.scaleFactor * (HoverInfoPopup.rect.height + padding));
+        if (bottomEdgeToScreenEdgeDistance > 0)
         {
-            newPos.y += topEdgeToScreenEdgeDistance;
+            newPos.y += bottomEdgeToScreenEdgeDistance;
         }
 
         HoverInfoPopup.position = newPos;
