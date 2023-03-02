@@ -5,33 +5,25 @@ using UnityEngine.UI;
 
 public class GameMenu : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject canvasObject;
-
-    [SerializeField]
-    private GameObject[] windows;
-
+    public static GameMenu Instance;
+    [SerializeField] private GameObject canvasObject;
+    [SerializeField] private GameObject[] windows;
     private CharStats[] playerStats;
-
-    [SerializeField]
-    private GameObject charInfoContainer;
-    [SerializeField]
-    private CharacterInfo[] charInfos;
-
-    [SerializeField]
-    private GameObject[] statusButton;
-
-    [SerializeField]
-    private Text statusName, statusHP, statusMP, statusStrengh, statusDefence, statusWpnEqpd, statusWnpPwr, statusArmrEqpd, statusArmrPwr, statusExp;
-
-    [SerializeField]
-    private Image statusImage;
+    [SerializeField] private GameObject charInfoContainer;
+    [SerializeField] private CharacterInfo[] charInfos;
+    [SerializeField] private GameObject[] statusButton;
+    [SerializeField] private Text statusName, statusHP, statusMP, statusStrengh, statusDefence, statusWpnEqpd, statusWnpPwr, statusArmrEqpd, statusArmrPwr, statusExp;
+    [SerializeField] private Image statusImage;
 
     public ItemClone ActiveItem;
     public Text ItemName, ItemDescription, UseBtnText;
-
     public GameObject ItemCharChoiceMenu;
     public Text[] ItemCharChoiceNames;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {

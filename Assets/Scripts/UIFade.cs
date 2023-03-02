@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class UIFade : MonoBehaviour
 {
-    [SerializeField]
-    private Image fadeScene;
+    public static UIFade Instance;
 
-    [SerializeField]
-    private float fadeSpeed;
+    [SerializeField] private Image fadeScene;
+    [SerializeField] private float fadeSpeed;
 
     private bool shouldFadeToBlack;
     private bool shouldFadeFromBlack;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Update is called once per frame
     void Update()

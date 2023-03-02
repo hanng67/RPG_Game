@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
+    public static DialogManager Instance;
     [SerializeField] private GameObject canvasObject;
     [SerializeField] private Text dialogText;
     [SerializeField] private GameObject nameBox;
@@ -13,6 +14,11 @@ public class DialogManager : MonoBehaviour
 
     private int currentLine;
     private bool justStarted;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Update is called once per frame
     void Update()

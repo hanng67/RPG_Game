@@ -11,20 +11,13 @@ public class DialogActivator : MonoBehaviour
     private bool isPerson = true;
 
     private bool canActive;
-    private DialogManager uiDialogSystem;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        uiDialogSystem = UIMgr.Instance.UIDialogSystem;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(canActive && Input.GetButtonDown("Fire1") && !uiDialogSystem.GetActiveStatus())
+        if(canActive && Input.GetButtonDown("Fire1") && !DialogManager.Instance.GetActiveStatus())
         {
-            uiDialogSystem.ShowDialog(newLines, isPerson);
+            DialogManager.Instance.ShowDialog(newLines, isPerson);
         }
         
     }

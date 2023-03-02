@@ -6,13 +6,20 @@ public class UIMgr : MonoBehaviour
 {
     public static UIMgr Instance;
 
-    public UIFade UIFadeSystem;
-    public DialogManager UIDialogSystem;
-    public GameMenu UIGameMenu;
+    [SerializeField] private List<GameObject> UIObjectPrefab = new List<GameObject>();
 
     private void Awake()
     {
         Instance = this;
+        LoadUIObject();
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void LoadUIObject()
+    {
+        foreach (var ui in UIObjectPrefab)
+        {
+            Instantiate(ui, transform);
+        }
     }
 }
