@@ -9,6 +9,21 @@ public class UIInventorySlot : MonoBehaviour
     public Text TxtQuantity;
 
     private ItemSlot itemSlot;
+    private Toggle toggle;
+    
+    private void Awake() {
+        toggle = GetComponent<Toggle>();
+        toggle.group = GetComponentInParent<ToggleGroup>();
+    }
+
+    private void Update() {
+        toggle.interactable = (itemSlot.Item != null);
+    }
+
+    private void OnDisable() {
+        OnMouseExit();
+        toggle.isOn = false;
+    }
 
     public void UpdateInfo(ItemSlot _itemSlot)
     {
