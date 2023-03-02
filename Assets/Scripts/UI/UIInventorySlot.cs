@@ -10,17 +10,20 @@ public class UIInventorySlot : MonoBehaviour
 
     private ItemSlot itemSlot;
     private Toggle toggle;
-    
-    private void Awake() {
+
+    private void Awake()
+    {
         toggle = GetComponent<Toggle>();
         toggle.group = GetComponentInParent<ToggleGroup>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         toggle.interactable = (itemSlot.Item != null);
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         OnMouseExit();
         toggle.isOn = false;
     }
@@ -28,28 +31,38 @@ public class UIInventorySlot : MonoBehaviour
     public void UpdateInfo(ItemSlot _itemSlot)
     {
         itemSlot = _itemSlot;
-        if(itemSlot.Item == null){
-            ItemImage.enabled = false;
-            TxtQuantity.text = "";
-            return;
-        }
+        if (itemSlot.Item == null) return;
 
         ItemImage.enabled = true;
         ItemImage.sprite = itemSlot.Item.Icon;
         TxtQuantity.text = itemSlot.Quantity > 1 ? itemSlot.Quantity.ToString() : "";
     }
 
+    public void ResetInfo()
+    {
+        itemSlot = new ItemSlot();
+        ItemImage.enabled = false;
+        TxtQuantity.text = "";
+    }
+
     public void OnMouseEnter()
     {
-        if(itemSlot.Item == null) return;
+        if (itemSlot.Item == null) return;
 
         Events.EventMouseStartHoverItem.Invoke(itemSlot.Item.GetInfoDisplayText());
     }
 
     public void OnMouseExit()
     {
-        if(itemSlot.Item == null) return;
-        
+        if (itemSlot.Item == null) return;
+
         Events.EventMouseEndHoverItem.Invoke();
+    }
+
+    public void OnSelect()
+    {
+        if(!toggle.isOn) return;
+        
+        Events.EventSelectItem.Invoke(itemSlot);
     }
 }
