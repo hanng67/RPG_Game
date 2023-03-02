@@ -5,26 +5,19 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField]
-    private Text dialogText;
-
-    [SerializeField]
-    private Text nameText;
-
-    [SerializeField]
-    private GameObject nameBox;
-
-    [SerializeField]
-    private string[] dialogLines;
+    [SerializeField] private GameObject canvasObject;
+    [SerializeField] private Text dialogText;
+    [SerializeField] private GameObject nameBox;
+    [SerializeField] private Text nameText;
+    [SerializeField] private string[] dialogLines;
 
     private int currentLine;
-
     private bool justStarted;
 
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.activeInHierarchy)
+        if (canvasObject.activeInHierarchy)
         {
             if (Input.GetButtonUp("Fire1"))
             {
@@ -33,7 +26,7 @@ public class DialogManager : MonoBehaviour
                     currentLine++;
                     if (currentLine >= dialogLines.Length)
                     {
-                        gameObject.SetActive(false);
+                        canvasObject.SetActive(false);
                         GameManager.Instance.dialogActive = false;
                     }
                     else
@@ -57,7 +50,7 @@ public class DialogManager : MonoBehaviour
         currentLine = 0;
         CheckIfName();
         dialogText.text = dialogLines[currentLine];
-        gameObject.SetActive(true);
+        canvasObject.SetActive(true);
         nameBox.SetActive(isPerson);
 
         GameManager.Instance.dialogActive = true;
@@ -76,6 +69,6 @@ public class DialogManager : MonoBehaviour
 
     public bool GetActiveStatus()
     {
-        return gameObject.activeInHierarchy;
+        return canvasObject.activeInHierarchy;
     }
 }

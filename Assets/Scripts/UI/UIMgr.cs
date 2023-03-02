@@ -15,23 +15,4 @@ public class UIMgr : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    private void Update()
-    {
-        CheckOpenGameMenuAction();
-    }
-
-    private void CheckOpenGameMenuAction()
-    {
-        if (!Input.GetButtonDown("Fire2")) return;
-
-        if (UIGameMenu.gameObject.activeInHierarchy)
-        {
-            UIGameMenu.CloseGameMenu();
-        }
-        else
-        {
-            UIGameMenu.OpenGameMenu();
-        }
-    }
 }

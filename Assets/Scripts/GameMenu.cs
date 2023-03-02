@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject theMenu;
+    private GameObject canvasObject;
 
     [SerializeField]
     private GameObject[] windows;
@@ -32,6 +32,25 @@ public class GameMenu : MonoBehaviour
 
     public GameObject ItemCharChoiceMenu;
     public Text[] ItemCharChoiceNames;
+
+    private void Update()
+    {
+        CheckOpenGameMenuAction();
+    }
+
+    private void CheckOpenGameMenuAction()
+    {
+        if (!Input.GetButtonDown("Fire2")) return;
+
+        if (canvasObject.activeInHierarchy)
+        {
+            CloseGameMenu();
+        }
+        else
+        {
+            OpenGameMenu();
+        }
+    }
 
     void UpdateMainStat()
     {
@@ -70,7 +89,7 @@ public class GameMenu : MonoBehaviour
 
     public void OpenGameMenu()
     {
-        gameObject.SetActive(true);
+        canvasObject.SetActive(true);
         UpdateMainStat();
         GameManager.Instance.gameMenuOpen = true;
     }
@@ -82,7 +101,7 @@ public class GameMenu : MonoBehaviour
             windows[i].SetActive(false);
         }
 
-        gameObject.SetActive(false);
+        canvasObject.SetActive(false);
         GameManager.Instance.gameMenuOpen = false;
     }
 
