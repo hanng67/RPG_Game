@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public CharStats[] playerStats;
-
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas;
 
     // Start is called before the first frame update

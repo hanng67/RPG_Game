@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8923323966207586114
+--- !u!1 &3023349120451040240
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8923323966207586116}
-  - component: {fileID: 8923323966207586117}
+  - component: {fileID: 4037192729402084921}
+  - component: {fileID: 4357580709047635517}
   m_Layer: 0
-  m_Name: EssentialLoader
+  m_Name: FrameMgr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8923323966207586116
+--- !u!4 &4037192729402084921
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8923323966207586114}
+  m_GameObject: {fileID: 3023349120451040240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,19 +31,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8923323966207586117
+--- !u!114 &4357580709047635517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8923323966207586114}
+  m_GameObject: {fileID: 3023349120451040240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae90c4b009500f4088b077d455ed888, type: 3}
+  m_Script: {fileID: 11500000, guid: 379335a5017d0354b91983913808b7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2350292340958571484, guid: 9de584b131e6b8846bc5c3c890b02175, type: 3}
-  uiMgr: {fileID: 2592893434683395297, guid: 36d1ca92c5ebc9c4ba3b2300bcf799fc, type: 3}
-  gameMan: {fileID: 3527324745980262108, guid: a4675bab01843d442836f27bb9c913b8, type: 3}
-  frameMgr: {fileID: 3023349120451040240, guid: 93e987b5c5e170847b19ee261c2a45c6, type: 3}
+  BaseEquipmentSlots:
+  - {fileID: 8033092973025764044, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: 4337684191699249041, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: -488721925442295091, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: -7573354855677281409, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: 1801263428120863714, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: -7855203551248514480, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}

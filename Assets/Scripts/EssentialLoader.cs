@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class EssentialLoader : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
-
-    [SerializeField]
-    private GameObject uiMgr;
-
-    [SerializeField]
-    private GameObject gameMan;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject uiMgr;
+    [SerializeField] private GameObject gameMan;
+    [SerializeField] private GameObject frameMgr;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +28,10 @@ public class EssentialLoader : MonoBehaviour
             GameManager.Instance =  Instantiate(gameMan).GetComponent<GameManager>();
         }
 
-    }
+        if(FrameMgr.Instance == null)
+        {
+            FrameMgr.Instance =  Instantiate(frameMgr).GetComponent<FrameMgr>();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
