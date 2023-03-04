@@ -32,14 +32,14 @@ public class UIBagWindow : MonoBehaviour
         Events.EventSelectItem.RemoveListener(SelectItem);
     }
 
-    public void UpdateInfo(bool isNeedResetInfo = false)
+    public void UpdateInfo()
     {
         int idx = 0;
         foreach (KeyValuePair<string, ItemSlot> inventorySlot in Inventory.Container)
         {
             ItemSlot itemInfo = inventorySlot.Value;
-            if (itemInfo == null) break;
-            InventorySlots[idx++].UpdateInfo(itemInfo);
+            if (itemInfo.Item == null) InventorySlots[idx++].ResetInfo();
+            else InventorySlots[idx++].UpdateInfo(itemInfo);
         }
     }
 

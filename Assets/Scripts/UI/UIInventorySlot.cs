@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour
+public class UIInventorySlot : UIBaseSlot
 {
-    public Image ItemImage;
-    public Text TxtQuantity;
+    [SerializeField] private Text TxtQuantity;
 
-    private ItemSlot itemSlot;
     private Toggle toggle;
 
     private void Awake()
@@ -22,41 +20,22 @@ public class UIInventorySlot : MonoBehaviour
         toggle.interactable = (itemSlot.Item != null);
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
-        OnMouseExit();
+        base.OnDisable();
         toggle.isOn = false;
     }
 
-    public void UpdateInfo(ItemSlot _itemSlot)
+    public override void UpdateInfo(ItemSlot itemSlot)
     {
-        itemSlot = _itemSlot;
-        if (itemSlot.Item == null) return;
-
-        ItemImage.enabled = true;
-        ItemImage.sprite = itemSlot.Item.Icon;
+        base.UpdateInfo(itemSlot);
         TxtQuantity.text = itemSlot.Quantity > 1 ? itemSlot.Quantity.ToString() : "";
     }
 
-    public void ResetInfo()
+    public override void ResetInfo()
     {
-        itemSlot = new ItemSlot();
-        ItemImage.enabled = false;
+        base.ResetInfo();
         TxtQuantity.text = "";
-    }
-
-    public void OnMouseEnter()
-    {
-        if (itemSlot.Item == null) return;
-
-        Events.EventMouseStartHoverItem.Invoke(itemSlot.Item.GetInfoDisplayText());
-    }
-
-    public void OnMouseExit()
-    {
-        if (itemSlot.Item == null) return;
-
-        Events.EventMouseEndHoverItem.Invoke();
     }
 
     public void OnSelect()
