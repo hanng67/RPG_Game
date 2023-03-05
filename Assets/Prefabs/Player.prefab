@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975a7bedad17d7e47b44e3428520bee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
+  Name: o0kids0o
+  Icon: {fileID: 7152930139536384079, guid: e886b7f74948d614b86cbcd8835e00cf, type: 3}
   Level: 1
   Stats:
     Stats:
@@ -201,6 +201,7 @@ MonoBehaviour:
       Value: 5
     - Name: Stamina
       Value: 5
+  ExpToNextLevel: 
 --- !u!114 &2585905990107683730
 MonoBehaviour:
   m_ObjectHideFlags: 0

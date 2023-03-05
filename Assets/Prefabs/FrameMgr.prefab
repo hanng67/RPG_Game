@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379335a5017d0354b91983913808b7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseEquipmentSlots:
-  - {fileID: 8033092973025764044, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
-  - {fileID: 4337684191699249041, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
-  - {fileID: -488721925442295091, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
-  - {fileID: -7573354855677281409, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
-  - {fileID: 1801263428120863714, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  DefaultEqptSlots:
   - {fileID: -7855203551248514480, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: 8033092973025764044, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: 1801263428120863714, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: 4337684191699249041, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: -7573354855677281409, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}
+  - {fileID: -488721925442295091, guid: 0bc4ed27aef38a44bb72e80f9beb5326, type: 3}

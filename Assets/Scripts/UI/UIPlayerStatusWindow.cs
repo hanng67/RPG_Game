@@ -1,33 +1,57 @@
 using UnityEngine;
 using UnityEngine.UI;
+using GameDefine;
 
 public class UIPlayerStatusWindow : MonoBehaviour
 {
-    [SerializeField] private Text statusName;
-    [SerializeField] private Text statusHP;
-    [SerializeField] private Text statusMP;
-    [SerializeField] private Text statusStrengh;
-    [SerializeField] private Text statusDefence;
-    [SerializeField] private Text statusWpnEqpd;
-    [SerializeField] private Text statusWnpPwr;
-    [SerializeField] private Text statusArmrEqpd;
-    [SerializeField] private Text statusArmrPwr;
-    [SerializeField] private Text statusExp;
-    [SerializeField] private Image statusImage;
-    private CharStats playerStats;
+    [SerializeField] private Image icon;
+    [SerializeField] private Text txtName;
+    [SerializeField] private Text txtLV;
+    [SerializeField] private Text txtHP;
+    [SerializeField] private Text txtMP;
+    [SerializeField] private Text txtEXP;
+    [SerializeField] private Text txtATK;
+    [SerializeField] private Text txtDEF;
+    [SerializeField] private Text txtAGI;
+    [SerializeField] private Text txtSTR;
+    [SerializeField] private Text txtINT;
+    [SerializeField] private Text txtSTA;
+    [SerializeField] private Slider expSlider;
+
+    [SerializeField] private GameObject eqptSlotContainer;
+    [SerializeField] private GameObject eqptSlotPrefab;
+    private PlayerInfo pInfo;
+
+    private void Awake() {
+        pInfo = PlayerMgr.Instance.PInfo;
+    }
+    
+    private void Start() {
+        for (int eqptType = 0; eqptType < (int)EquipmentTypes.Count; eqptType++)
+        {
+            GameObject eqptSlot = Instantiate(eqptSlotPrefab, eqptSlotContainer.transform);
+            eqptSlot.GetComponent<UIEquipmentSlot>().Init((EquipmentTypes)eqptType, FrameMgr.Instance.DefaultEqptSlots[eqptType]);
+        }
+    }
+
+    private void OnEnable() {
+        UpdateInfo();
+    }
 
     public void UpdateInfo()
     {
-        statusName.text = playerStats.CharName;
-        statusHP.text = "" + playerStats.CurrentHP + "/" + playerStats.MaxHP;
-        statusMP.text = "" + playerStats.CurrentMP + "/" + playerStats.MaxMP;
-        statusStrengh.text = playerStats.Strengh.ToString();
-        statusDefence.text = playerStats.Defence.ToString();
-        statusWpnEqpd.text = playerStats.EquippedWpn == "" ? "None" : playerStats.EquippedWpn;
-        statusWnpPwr.text = playerStats.WpnPwr.ToString();
-        statusArmrEqpd.text = playerStats.EquippedArmr == "" ? "None" : playerStats.EquippedArmr;
-        statusArmrPwr.text = playerStats.ArmrPwr.ToString();
-        statusExp.text = (playerStats.ExpToNextLevel[playerStats.PlayerLevel] - playerStats.CurrentExp).ToString();
-        statusImage.sprite = playerStats.CharImage;
+        txtName.text = pInfo.Name;
+        icon.sprite = pInfo.Icon;
+        txtLV.text = $"Lv: {pInfo.Stats[Attributes.Level]}";
+        txtHP.text = $"HP: {pInfo.Stats[Attributes.Health_Restore]}/{pInfo.Stats[Attributes.Health]}";
+        txtMP.text = $"MP: {pInfo.Stats[Attributes.Mana_Restore]}/{pInfo.Stats[Attributes.Mana]}";
+        txtEXP.text = $"{pInfo.Stats[Attributes.Exp]}/{pInfo.ExpToNextLevel[pInfo.Stats[Attributes.Level]]}";
+        txtATK.text = $"ATK: {pInfo.Stats[Attributes.Attack]}";
+        txtDEF.text = $"DEF: {pInfo.Stats[Attributes.Defence]}";
+        txtAGI.text = $"AGI: {pInfo.Stats[Attributes.Agility]}";
+        txtSTR.text = $"STR: {pInfo.Stats[Attributes.Strength]}";
+        txtINT.text = $"INT: {pInfo.Stats[Attributes.Intelligent]}";
+        txtSTA.text = $"STA: {pInfo.Stats[Attributes.Stamina]}";
+        expSlider.value = ((float)pInfo.Stats[Attributes.Exp])/pInfo.ExpToNextLevel[pInfo.Stats[Attributes.Level]];
     }
 }

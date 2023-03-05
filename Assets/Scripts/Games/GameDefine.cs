@@ -24,4 +24,15 @@ namespace GameDefine
         Stamina,
         Count
     }
+
+    public enum EquipmentTypes
+    {
+        Weapon,
+        Helmet,
+        Gloves,
+        Armor,
+        Shoes,
+        Pants,
+        Count
+    }
 }

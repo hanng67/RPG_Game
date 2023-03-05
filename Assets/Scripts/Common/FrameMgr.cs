@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class FrameMgr : MonoBehaviour
 {
     public static FrameMgr Instance;
-    public Sprite[] BaseEquipmentSlots = new Sprite[6];
+    public Sprite[] DefaultEqptSlots = new Sprite[6];
 
     private void Awake()
     {

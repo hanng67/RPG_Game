@@ -9,7 +9,7 @@ public class PlayerInfo : MonoBehaviour
 
     public PlayerStats Stats = new PlayerStats();
 
-    private int[] ExpToNextLevel;
+    [HideInInspector] public int[] ExpToNextLevel;
     private int maxLevel = 100;
     private int baseEXP = 1000;
     private int[] MpLvlBonus;

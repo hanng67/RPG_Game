@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using GameDefine;
 
 public class UIEquipmentSlot : UIBaseSlot
 {
@@ -9,6 +10,7 @@ public class UIEquipmentSlot : UIBaseSlot
     public void Init(EquipmentTypes equipmentType, Sprite defaultSprite){
         this.equipmentType = equipmentType;
         defaultItemImage.sprite = defaultSprite;
+        ResetInfo();
     }
 
     public override void UpdateInfo(ItemSlot itemSlot)

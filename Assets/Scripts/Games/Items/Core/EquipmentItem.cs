@@ -1,5 +1,5 @@
 using UnityEngine;
-using System;
+using GameDefine;
 
 [CreateAssetMenu(fileName = "new Equipment Item", menuName = "Scriptable Object/Equipment Item")]
 public class EquipmentItem : BaseItem
@@ -10,13 +10,4 @@ public class EquipmentItem : BaseItem
     {
         Type = ItemTypes.Equipment;
     }
-}
-
-public enum EquipmentTypes{
-    Helmet,
-    Armor,
-    Pants,
-    Shoes,
-    Gloves,
-    Weapon
 }
