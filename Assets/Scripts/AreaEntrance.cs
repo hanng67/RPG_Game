@@ -9,9 +9,9 @@ public class AreaEntrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (AreaEntranceName == PlayerController.Instance.AreaTransistionName)
+        if (AreaEntranceName == PlayerMgr.Instance.AreaTransistionName)
         {
-            PlayerController.Instance.transform.position = transform.position;
+            PlayerMgr.Instance.transform.position = transform.position;
         }
         UIFade.Instance.FadeFromBlack();
         GameManager.Instance.fadingBetweenAreas = false;

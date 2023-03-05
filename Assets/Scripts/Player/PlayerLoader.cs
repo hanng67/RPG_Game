@@ -9,7 +9,7 @@ public class PlayerLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerController.Instance == null)
+        if(PlayerMgr.Instance == null)
         {
             Instantiate(Player);
         }

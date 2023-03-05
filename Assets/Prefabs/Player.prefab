@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2350292340958571475}
   - component: {fileID: 2350292340958571478}
   - component: {fileID: 8966379992718874702}
+  - component: {fileID: 2585905990107683730}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,15 +153,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2350292340958571484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f70f6c4e10bd6c48a3e4c3a901fd247, type: 3}
+  m_Script: {fileID: 11500000, guid: b6491a1cd9da02444a375277e6edfbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theRB: {fileID: 2350292340958571472}
-  moveSpeed: 4
-  myAnim: {fileID: 2350292340958571475}
-  AreaTransistionName: 
+  PMove: {fileID: 2585905990107683730}
+  PInfo: {fileID: 8966379992718874702}
   BagInventory: {fileID: 11400000, guid: eec0a7759b06ac649a0e78681cac7285, type: 2}
-  CanMove: 1
+  AreaTransistionName: 
 --- !u!114 &8966379992718874702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +201,19 @@ MonoBehaviour:
       Value: 5
     - Name: Stamina
       Value: 5
+--- !u!114 &2585905990107683730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350292340958571484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7cd72d210585d4bb347d99c341960f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theRB: {fileID: 2350292340958571472}
+  myAnim: {fileID: 2350292340958571475}
+  moveSpeed: 4
+  CanMove: 1

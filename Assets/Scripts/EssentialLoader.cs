@@ -12,10 +12,10 @@ public class EssentialLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerController.Instance == null)
+        if(PlayerMgr.Instance == null)
         {
-            PlayerController clone = Instantiate(player).GetComponent<PlayerController>();
-            PlayerController.Instance = clone;
+            PlayerMgr clone = Instantiate(player).GetComponent<PlayerMgr>();
+            PlayerMgr.Instance = clone;
         }
 
         if (UIMgr.Instance == null)

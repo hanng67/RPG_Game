@@ -1,44 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D theRB;
-
-    [SerializeField]
-    private float moveSpeed;
-
-    [SerializeField]
-    private Animator myAnim;
-
-    public string AreaTransistionName;
-
-    public static PlayerController Instance;
-    public InventoryObject BagInventory;
-
-    private Vector3 bottomLeftLimit;
-    private Vector3 topRightLimit;
+    [SerializeField] private Rigidbody2D theRB;
+    [SerializeField] private Animator myAnim;
+    [SerializeField] private float moveSpeed;
 
     public bool CanMove = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            if(Instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
-        DontDestroyOnLoad(gameObject);
-    }
+    private Vector3 bottomLeftLimit;
+    private Vector3 topRightLimit;
 
     // Update is called once per frame
     void Update()
