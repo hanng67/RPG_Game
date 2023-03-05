@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2350292340958571472}
   - component: {fileID: 2350292340958571475}
   - component: {fileID: 2350292340958571478}
+  - component: {fileID: 8966379992718874702}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,3 +161,44 @@ MonoBehaviour:
   AreaTransistionName: 
   BagInventory: {fileID: 11400000, guid: eec0a7759b06ac649a0e78681cac7285, type: 2}
   CanMove: 1
+--- !u!114 &8966379992718874702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350292340958571484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975a7bedad17d7e47b44e3428520bee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Icon: {fileID: 0}
+  Level: 1
+  Stats:
+    Stats:
+    - Name: Current_HP
+      Value: 100
+    - Name: Current_MP
+      Value: 30
+    - Name: Max_HP
+      Value: 100
+    - Name: Max_MP
+      Value: 30
+    - Name: Exp
+      Value: 0
+    - Name: Level
+      Value: 1
+    - Name: Attack
+      Value: 5
+    - Name: Defence
+      Value: 5
+    - Name: Agility
+      Value: 5
+    - Name: Strength
+      Value: 5
+    - Name: Intelligent
+      Value: 5
+    - Name: Stamina
+      Value: 5

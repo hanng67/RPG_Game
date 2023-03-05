@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Text;
+using GameDefine;
 
 [CreateAssetMenu(fileName = "new Item", menuName = "Scriptable Object/Item")]
 public class BaseItem : ScriptableObject
@@ -36,19 +37,6 @@ public enum ItemTypes
 {
     Potion,
     Equipment
-}
-public enum Attributes
-{
-    Health_Restore,
-    Mana_Restore,
-    Health,
-    Mana,
-    Attack,
-    Defend,
-    Agility,
-    Strength,
-    Intelligent,
-    Stamina
 }
 
 [Serializable]

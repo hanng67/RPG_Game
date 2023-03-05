@@ -2,7 +2,26 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class GameDefine
+namespace GameDefine
 {
+    public class GameDefine
+    {
+    }
 
+    public enum Attributes
+    {
+        Health_Restore,
+        Mana_Restore,
+        Health,
+        Mana,
+        Exp,
+        Level,
+        Attack,
+        Defence,
+        Agility,
+        Strength,
+        Intelligent,
+        Stamina,
+        Count
+    }
 }
